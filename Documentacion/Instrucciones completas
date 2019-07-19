@@ -9,7 +9,6 @@ Pre-requisitos:
 -Ubuntu 18.04
 -Nginx Instalado
 
-
 1) Instalar componentes del repo de Ubuntu:
 
 $ sudo apt update
