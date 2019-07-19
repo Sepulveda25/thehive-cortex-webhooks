@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+
+from parametros import *
+
 def task_new():  # New case task created payload
     data = json.loads(request.data.decode('utf-8'))
     payload = {"attachments": [
@@ -18,8 +22,10 @@ def task_new():  # New case task created payload
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+   # r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+   # print("Response: " + str(r.status_code) + "," + str(r.reason))
 
 
 def task_update():  # Case task updated payload
@@ -42,8 +48,10 @@ def task_update():  # Case task updated payload
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+   # r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+   # print("Response: " + str(r.status_code) + "," + str(r.reason))
 
 
 def task_delete():  # Case task deleted payload
@@ -66,8 +74,10 @@ def task_delete():  # Case task deleted payload
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+   # r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+   # print("Response: " + str(r.status_code) + "," + str(r.reason))
 
 
 def task_complete():  # Case task completed payload
@@ -90,5 +100,7 @@ def task_complete():  # Case task completed payload
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+   # r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+   # print("Response: " + str(r.status_code) + "," + str(r.reason))

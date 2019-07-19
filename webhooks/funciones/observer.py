@@ -22,8 +22,10 @@ def observe_new(): # New case observable created
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+ #   r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+ #   "Response: " + str(r.status_code) + "," + str(r.reason)
 
 
 def observe_update():  # Case observable updated
@@ -46,8 +48,10 @@ def observe_update():  # Case observable updated
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+ #   r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+ #   "Response: " + str(r.status_code) + "," + str(r.reason)
 
 
 def observe_delete():  # Case obserable deleted
@@ -70,5 +74,8 @@ def observe_delete():  # Case obserable deleted
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+ #   r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+ #   "Response: " + str(r.status_code) + "," + str(r.reason)
+

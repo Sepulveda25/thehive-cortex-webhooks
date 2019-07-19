@@ -8,12 +8,9 @@ sys.path.insert(0, './funciones')
 
 from alerts import alert_new
 from cases import case_new, case_delete, case_update
+from tasks import task_new, task_update, task_delete, task_complete
 from observers import observe_new, observe_update, observe_delete
-
-hookURL = 'https://hooks.slack.com/services/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'  # Your Slack URL API
-hiveURL = 'http://172.16.81.110'  # Your Hive URL
-headers = {'content-type': 'application/json'}
-
+from slack_send import slack_send
 
 def find_key(obj, key):  # recursive generator
     if isinstance(obj, dict):
@@ -55,33 +52,56 @@ def process():  # If logic
         print("{!r}: {!r}".format(k, val))
     if (data['objectType']) == 'case':
         if (data['operation']) == 'Creation':  # Case created, updated, deleted
-            case_new()
-        elif (data['operation']) == 'Update':
-            case_update()
+            post = case_new()
+            slack_send(post)
+            print (post)
+        elif (data['operation']) == 'Update':            
+            post = case_update()
+            slack_send(post)
+            print (post)
         elif (data['operation']) == 'Delete':
-            case_delete()
+            post = case_delete()
+            slack_send(post)
+            print (post)
     if (data['objectType']) == 'case_task': # Task created deleted, completed, updated
-        if (data['operation']) == 'Creation':
-            task_new()
-        elif (data['object']['status']) == 'Cancel':
-            task_delete()
-        elif (data['object']['status']) == 'Completed':
-            task_complete()
+        if (data['operation']) == 'Creation':        
+            post = task_new()
+            slack_send(post)
+            print (post)
+        elif (data['object']['status']) == 'Cancel':        
+            post = task_delete()
+            slack_send(post)
+            print (post)
+        elif (data['object']['status']) == 'Completed':         
+            post = task_complete()
+            slack_send(post)
+            print (post)
         elif (data['operation']) == 'Update':
             if (data['object']['status']) == 'InProgress':
-                task_update()
+                post = task_update()
+            slack_send(post)
+                print (post)         
     if (data['objectType']) == 'case_artifact': # Observable created, updated, deleted
         if (data['operation']) == 'Creation':
-            observe_new()
+            post = observe_new()
+            slack_send(post)
+            print (post)            
         elif(data['operation']) == 'Update':
-            observe_update()
+            post = observe_update()
+            slack_send(post)
+            print (post)   
         elif (data['operation']) == 'Delete':
-            observe_delete()
+            post = observe_delete()
+            slack_send(post)
+            print (post)
     if (data['objectType']) == 'alert': # Creacion de alertas
         if (data['operation']) == 'Creation':
-            alert_new()
+            post = alert_new()
+            slack_send(post)
+            print (post)      
     return 'ok'
 
 
 if __name__ == '__main__':
     app.run()
+

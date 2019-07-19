@@ -23,8 +23,10 @@ def case_new():  # New case created payload
                     }
                  ]
               }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    print("Response: " + str(r.status_code) + "," + str(r.reason))
+    data=json.dumps(payload)
+    return data 
+   # r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+   # print("Response: " + str(r.status_code) + "," + str(r.reason))
 
 
 def case_delete():  # Case deleted payload
@@ -47,8 +49,10 @@ def case_delete():  # Case deleted payload
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+ #   r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+ #   "Response: " + str(r.status_code) + "," + str(r.reason)
 
 
 def case_update():  # Case updated payload
@@ -71,5 +75,7 @@ def case_update():  # Case updated payload
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+ #   r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+ #   "Response: " + str(r.status_code) + "," + str(r.reason)

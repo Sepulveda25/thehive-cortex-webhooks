@@ -50,8 +50,9 @@ def alert_new():
         }
     ]
     }
-    r = requests.post(hookURL, data=json.dumps(payload), headers=headers)	
-    "Response: " + str(r.status_code) + "," + str(r.reason)
+    data=json.dumps(payload)
+    return data 
+ #   r = requests.post(hookURL, data=json.dumps(payload), headers=headers)
+ #   "Response: " + str(r.status_code) + "," + str(r.reason)
 
-#envia a SLACK y ahora crea un caso automaticamente.
 
