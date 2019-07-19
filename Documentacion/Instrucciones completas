@@ -1,0 +1,133 @@
+Instrucciones para crear webserver Gunicorn y Nginx para aplicaciones FLASK:
+
+https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
+
+Instructivo para levantar una aplicacion Python usando Flask.
+Usando GUNICORN como web server y configurar NGINX para que actue como proxy reverso de front-end.
+
+Pre-requisitos: 
+-Ubuntu 18.04
+-Nginx Instalado
+
+
+1) Instalar componentes del repo de Ubuntu:
+
+$ sudo apt update
+
+$ sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
+
+2) Crear un Entorno Virtual de Python
+
+El entorno se crea para aislar nuestra aplicacion Flask de los otros archivos de python en el sistema.
+
+Se instala python3-venv:
+
+$ sudo apt install python3-venv
+
+Se crea el directorio del proyecto:
+
+$ mkdir ~/myproject
+$ cd ~/myproject
+
+Se crea el entorno virtual para almacenar el proyecto Flask (esto crea una copia local de python y pip en el directorio llamado myprojectenv):
+
+$ python3.6 -m venv myprojectenv
+
+Activar el entorno virtual (el promp debe cambiar y mostrar al comienzo (myprojectenv)):
+
+$ source myprojectenv/bin/activate
+
+3) Configuración de la aplicacion Flask
+
+Se instala Flask, Gunicorn y Wheel dentro del entorno virtual con la instancia local de pip:
+(dentro de un entorno virtual se usa el comando pip (no pip3) independientemente de la version de python usada).
+
+(myprojectenv) $ pip install wheel
+(myprojectenv) $ pip install gunicorn flask
+
+4) La aplicacion que se va a ejecutar es "theHiveWebhook.py", dentro se importa Flask y crea un objeto Flask.
+
+Para permitir la aplicacion se debe permitir el acceso al puerto 5000:
+
+(myprojectenv) $ sudo ufw allow 5000 
+
+Testeo de la aplicacion: 
+
+(myprojectenv) $ python theHiveWebhook.py
+
+La salida de terminal es:
+
+ * Serving Flask app "theHiveWebhook" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+(Para continuar con el testing usar el ejemplo del repositorio "crearalertaAPI", copiar y pegar el comando curl en la terminal en thehive (cambiar el campo sourceRef en caso de falla, la ip y la API-KEY)). 
+
+5) Crear punto de entrada WSGI 
+
+Creamos el archivo que sirva como punto de entrada a nuestra aplicacion. Esto le indica al servidor Gunicorn como interactuar con la aplicacion.
+
+Crear el archivo wsgi.py
+
+(myprojectenv) $ nano ~/myproject/wsgi.py
+
+*********************************
+from theHiveWebhook import app
+
+if __name__ == "__main__":
+    app.run()
+*********************************
+
+5) Testear Gunicorn
+
+La aplicacion ahora esta escrita con un punto de entrada. 
+Antes de configurar Gunicorn, hay que verificar que puede correr la aplicacion correctamente pasandole el nombre del modulo (menos .py) y el nombre de la funcion llamada dentro de nuestra aplicacion, esto es: wsgi:app.
+Tambien se especifica interfaz y puerto que se va a enlazar con la aplicacion:
+ 
+(myprojectenv) $ gunicorn --bind 0.0.0.0:5000 wsgi:app
+
+(Para continuar con el testing usar el ejemplo del repositorio "crearalertaAPI", copiar y pegar el comando curl en la terminal en thehive (cambiar el campo sourceRef en caso de falla, la ip y la API-KEY)).
+
+
+Ahora podemos desactivar el entorno virtual:
+
+(myprojectenv) $ deactivate
+
+6) Configurar Gunicorn
+
+Vamos a crear el archivo de unidad de servicio systemd. La creación de un archivo de unidad del sistema permitirá que el sistema de inicio de Ubuntu inicie automáticamente Gunicorn y "sirva" la aplicación Flask cada vez que se inicie el servidor.
+
+
+crear el archivo (reemplazar myproject por theHiveWebhook):
+
+$ sudo nano /etc/syste
+Let's give our regular user account ownership of the process since it owns all of the relevant files.
+        
+Atribuyamos a nuestra cuenta de usuario habitual el proceso, ya que posee todos los archivos relevantes.
+md/system/myproject.service
+
+*********************************
+[Unit]
+Description=Gunicorn instance to serve myproject
+After=network.target
+
+[Service]
+User=thehive
+Group=www-data
+WorkingDirectory=/home/thehive/myproject
+Environment="PATH=/home/thehive/myproject/myprojectenv/bin"
+ExecStart=/home/thehive/myproject/myprojectenv/bin/gunicorn --workers 3 --bind unix:myproject.sock -m 007 wsgi:app
+
+*********************************
+
+Dentro colocamos la descripcion del servicio y que el mismo se inicie luego de ejecutar el servicio network.target. 
+Tambien especificamos el usuario y grupo de usuario bajo el cual se ejecutara el proceso, se elige el grupo www-data para que NGINX pueda comunicarse facilmente con el proceso Gunicorn.
+Tambien se mapea el directorio de trabajo y se setea la variable PATH 
+
+
+
+
+
