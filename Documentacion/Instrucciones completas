@@ -26,16 +26,16 @@ $ sudo apt install python3-venv
 
 Se crea el directorio del proyecto:
 
-$ mkdir ~/myproject
-$ cd ~/myproject
+$ mkdir ~/webhooks
+$ cd ~/webhooks
 
 Se crea el entorno virtual para almacenar el proyecto Flask (esto crea una copia local de python y pip en el directorio llamado myprojectenv):
 
-$ python3.6 -m venv myprojectenv
+$ python3.6 -m venv webhooksenv
 
 Activar el entorno virtual (el promp debe cambiar y mostrar al comienzo (myprojectenv)):
 
-$ source myprojectenv/bin/activate
+$ source webhooksenv/bin/activate
 
 3) Configuración de la aplicacion Flask
 
@@ -53,6 +53,9 @@ Para permitir la aplicacion se debe permitir el acceso al puerto 5000:
 
 Testeo de la aplicacion: 
 
+(es posible que la aplicacion requiera instalar la libreria request)
+
+
 (myprojectenv) $ python theHiveWebhook.py
 
 La salida de terminal es:
@@ -64,7 +67,7 @@ La salida de terminal es:
  * Debug mode: off
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 
-(Para continuar con el testing usar el ejemplo del repositorio "crearalertaAPI", copiar y pegar el comando curl en la terminal en thehive (cambiar el campo sourceRef en caso de falla, la ip y la API-KEY)). 
+(Para continuar con el testing usar el ejemplo del repositorio "crearalertaAPI", copiar y pegar el comando curl en la terminal en thehive (cambiar la IP y la API-KEY, y en caso de falla el campo sourceRef )).
 
 5) Crear punto de entrada WSGI 
 
@@ -89,7 +92,7 @@ Tambien se especifica interfaz y puerto que se va a enlazar con la aplicacion:
  
 (myprojectenv) $ gunicorn --bind 0.0.0.0:5000 wsgi:app
 
-(Para continuar con el testing usar el ejemplo del repositorio "crearalertaAPI", copiar y pegar el comando curl en la terminal en thehive (cambiar el campo sourceRef en caso de falla, la ip y la API-KEY)).
+(Para continuar con el testing usar el ejemplo del repositorio "crearalertaAPI", copiar y pegar el comando curl en la terminal en thehive (cambiar la IP y la API-KEY, y en caso de falla el campo sourceRef )).
 
 
 Ahora podemos desactivar el entorno virtual:
@@ -101,25 +104,27 @@ Ahora podemos desactivar el entorno virtual:
 Vamos a crear el archivo de unidad de servicio systemd. La creación de un archivo de unidad del sistema permitirá que el sistema de inicio de Ubuntu inicie automáticamente Gunicorn y "sirva" la aplicación Flask cada vez que se inicie el servidor.
 
 
-crear el archivo (reemplazar myproject por theHiveWebhook):
-
-$ sudo nano /etc/syste
+$ sudo nano /etc/systemd/system/webhooks.service
 Let's give our regular user account ownership of the process since it owns all of the relevant files.
         
-Atribuyamos a nuestra cuenta de usuario habitual el proceso, ya que posee todos los archivos relevantes.
-md/system/myproject.service
+Atribuyamos a nuestra cuenta de usuario habitual el proceso, ya que posee todos los archivos relevantes, 
+
+/etc/systemd/system/webhooks.service:
 
 *********************************
 [Unit]
-Description=Gunicorn instance to serve myproject
+Description=Gunicorn instance to serve webhooks
 After=network.target
 
 [Service]
 User=thehive
 Group=www-data
-WorkingDirectory=/home/thehive/myproject
-Environment="PATH=/home/thehive/myproject/myprojectenv/bin"
-ExecStart=/home/thehive/myproject/myprojectenv/bin/gunicorn --workers 3 --bind unix:myproject.sock -m 007 wsgi:app
+WorkingDirectory=/home/thehive/webhooks
+Environment="PATH=/home/thehive/webhooks/webhooksenv/bin"
+ExecStart=/home/thehive/webhooks/webhooksenv/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 -m 007  wsgi:app
+
+[Install]
+WantedBy=multi-user.target
 
 *********************************
 
@@ -127,7 +132,13 @@ Dentro colocamos la descripcion del servicio y que el mismo se inicie luego de e
 Tambien especificamos el usuario y grupo de usuario bajo el cual se ejecutara el proceso, se elige el grupo www-data para que NGINX pueda comunicarse facilmente con el proceso Gunicorn.
 Tambien se mapea el directorio de trabajo y se setea la variable PATH 
 
+(Recuerde reemplazar el nombre de usuario y las rutas del proyecto con su propia información).
 
+Se agrega seccion Install, para indicarle a systemd a que vincular este servicio si lo habilitamos para que arranque al inicio, queremos que este servicio inicie cuando el sistema multi-usuario normal este ya en funcionamiento.
 
+Una vez que el archivo esta en /etc/systemd/system/ bajo el nombre myproject.service, podemos iniciar el servicio Gunicorn y habilitarlo para que empiece en el arranque.
+
+$ sudo systemctl start webhooks.service
+$ sudo systemctl enable webhooks.service
 
 

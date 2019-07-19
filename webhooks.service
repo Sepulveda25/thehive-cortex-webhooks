@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve webhooks
+After=network.target
+
+[Service]
+User=thehive
+Group=www-data
+WorkingDirectory=/home/thehive/webhooks
+Environment="PATH=/home/thehive/webhooks/webhooksenv/bin"
+ExecStart=/home/thehive/webhooks/webhooksenv/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 -m 007  wsgi:app
+
+[Install]
+WantedBy=multi-user.target
