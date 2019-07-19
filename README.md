@@ -1,4 +1,4 @@
-Instrucciones:
+#  Instrucciones:
 
 (Para ver detalles del desarollo ver archivo Instrucciones completas en carpeta Documentacion).
 
@@ -10,7 +10,7 @@ Instrucciones:
 5) Comprobar el estado del servicio:
 	$ sudo systemctl enable webhooks.service
 
-Referencias:
+#  Referencias:
 
 https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/webhooks.md#configuration
 
