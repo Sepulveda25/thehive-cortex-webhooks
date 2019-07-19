@@ -79,7 +79,7 @@ def process():  # If logic
         elif (data['operation']) == 'Update':
             if (data['object']['status']) == 'InProgress':
                 post = task_update()
-            slack_send(post)
+                slack_send(post)
                 print (post)         
     if (data['objectType']) == 'case_artifact': # Observable created, updated, deleted
         if (data['operation']) == 'Creation':
