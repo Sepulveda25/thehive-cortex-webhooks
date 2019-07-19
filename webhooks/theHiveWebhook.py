@@ -5,6 +5,7 @@ from parametros import *
 
 import sys
 sys.path.insert(0, './funciones')
+
 from alerts import alert_new
 from cases import case_new, case_delete, case_update
 from observers import observe_new, observe_update, observe_delete
