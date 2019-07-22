@@ -30,12 +30,13 @@
 	<br />`$ sudo systemctl enable webhooks.service`
 12. Modificar TheHive para que envie acciones al ENDPOINT HTTP creado, agregando al archivo `/etc/thehive/application.conf`:
 
+```
 webhooks {
   myLocalWebHook {
     url = "http://my_HTTP_endpoint/webhook"
   }
 }
-
+```
 
 
 
