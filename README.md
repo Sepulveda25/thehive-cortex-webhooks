@@ -24,10 +24,21 @@
 	<br />`$ sudo ufw allow 5000`
 8.  Dentro de la carpeta webhooks modificar el archivo `parametros.py` con los valores de `hiveUR`L y `hookURL` correspodientes.
 9.  Copiar archivo `webhooks.service` en `/etc/systemd/system/`
-10.   Iniciar el servicio:
+10. Iniciar el servicio:
 	<br />`$ sudo systemctl start webhooks.service`
-11.  Comprobar el estado del servicio:
+11. Comprobar el estado del servicio:
 	<br />`$ sudo systemctl enable webhooks.service`
+12. Modificar TheHive para que envie acciones al ENDPOINT HTTP creado, agregando al archivo `/etc/thehive/application.conf`:
+
+webhooks {
+  myLocalWebHook {
+    url = "http://my_HTTP_endpoint/webhook"
+  }
+}
+
+
+
+
 
 
 #  Referencias:
