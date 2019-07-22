@@ -31,12 +31,9 @@
 
 #  Referencias:
 
-https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/webhooks.md#configuration
-
-https://github.com/TheHive-Project/TheHiveHooks
-
-https://github.com/cybergoatpsyops/TheHive-SideProjects
-
-https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
+* https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/webhooks.md#configuration
+* https://github.com/TheHive-Project/TheHiveHooks
+* https://github.com/cybergoatpsyops/TheHive-SideProjects
+* https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
 
 
