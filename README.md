@@ -22,7 +22,7 @@
 7.  Permitir acceso puerto 5000:
 	`$ sudo ufw allow 5000`
 8.  Dentro de la carpeta webhooks modificar el archivo `parametros.py` con los valores de `hiveUR`L y `hookURL` correspodientes.
-9.  Copiar archivo `webhooks.service` en ``/etc/systemd/system/`
+9.  Copiar archivo `webhooks.service` en `/etc/systemd/system/`
 10.   Iniciar el servicio:
 	`$ sudo systemctl start webhooks.service`
 11.  Comprobar el estado del servicio:
