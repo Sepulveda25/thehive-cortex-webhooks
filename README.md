@@ -4,7 +4,7 @@
 
 #  Instrucciones:
 
-(Para ver detalles del desarollo ver archivo Instrucciones completas en carpeta Documentacion).
+(Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
 
 1.  Pegar carpeta webhooks en home.
@@ -13,10 +13,11 @@
     <br />`$ python3.6 -m venv webhooksenv`
 4.  Activar entorno virtual:
 	<br />`$ source webhooksenv/bin/activate`
-5.  Instalar Flask, Gunicorn, Wheel y requests:
+5.  Instalar librerias Flask, Gunicorn, Wheel y Request:
 	<br />`$ pip install wheel`
 	<br />`$ pip install gunicorn`
 	<br />`$ pip install flask`
+	<br />`$ pip install requests`
 6.  Salir del entorno virtual:
     <br />`$ deactivate`
 7.  Permitir acceso puerto 5000:
