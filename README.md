@@ -10,23 +10,23 @@
 1.  Pegar carpeta webhooks en home.
 2.  Eliminar carpeta `webhooksenv` en caso de existir.
 3. Crear entorno virtual:
-    `$ python3.6 -m venv webhooksenv`
+    <br />`$ python3.6 -m venv webhooksenv`
 4.  Activar entorno virtual:
 	`$ source webhooksenv/bin/activate`
 5.  Instalar Flask, Gunicorn, Wheel y requests:
 	<br />`$ pip install wheel`
-	`$ pip install gunicorn`
-	`$ pip install flask`
+	<br />`$ pip install gunicorn`
+	<br />`$ pip install flask`
 6.  Salir del entorno virtual:
-    `$ deactivate`
+    <br />`$ deactivate`
 7.  Permitir acceso puerto 5000:
-	`$ sudo ufw allow 5000`
+	<br />`$ sudo ufw allow 5000`
 8.  Dentro de la carpeta webhooks modificar el archivo `parametros.py` con los valores de `hiveUR`L y `hookURL` correspodientes.
 9.  Copiar archivo `webhooks.service` en `/etc/systemd/system/`
 10.   Iniciar el servicio:
-	`$ sudo systemctl start webhooks.service`
+	<br />`$ sudo systemctl start webhooks.service`
 11.  Comprobar el estado del servicio:
-	`$ sudo systemctl enable webhooks.service`
+	<br />`$ sudo systemctl enable webhooks.service`
 
 
 #  Referencias:
