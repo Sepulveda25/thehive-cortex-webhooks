@@ -1,51 +1,52 @@
 {
   "severity": 3,
-  "date": 1563380514000,
-  "_routing": "c379c180a3ca55a23ef84d41517ee811",
+  "date": 1563753015000,
+  "_routing": "26cea74612900b90ead84391c453261d",
   "customFields": {},
   "caseTemplate": null,
   "_type": "alert",
-  "description": "[1:2001219:20] ET SCAN Potential SSH Scan [Classification: Attempted Information Leak] [Priority: 2]: <sonion-virtual-machine-ens192> {TCP} 218.92.0.210:27255 -> 200.16.22.127:22",
-  "lastSyncDate": 1563380514280,
+  "description": "[1:2027416:1] ET WEB_SPECIFIC_APPS ECSHOP user.php SQL INJECTION via Referer [Classification: Web Application Attack] [Priority: 1]: <sonion-virtual-machine-ens192> {TCP} 106.52.208.136:60782 -> 200.16.22.226:80",
+  "lastSyncDate": 1563753013057,
   "source": "SecurityOnion",
+  "title": "New IDS Alert! -- ET WEB_SPECIFIC_APPS ECSHOP user.php SQL INJECTION via Referer ",
   "type": "external",
   "follow": true,
-  "title": "New IDS Alert! -- ET SCAN Potential SSH Scan ",
   "tags": [
-    "elastalert, SecurityOnion, scan"
+    "elastalert, SecurityOnion, web_specific_apps"
   ],
-  "createdAt": 1563380514278,
+  "createdAt": 1563753013057,
   "_parent": null,
   "createdBy": "eco",
   "tlp": 3,
-  "_id": "c379c180a3ca55a23ef84d41517ee811",
-  "id": "c379c180a3ca55a23ef84d41517ee811",
-  "sourceRef": "356749",
+  "_id": "26cea74612900b90ead84391c453261d",
+  "id": "26cea74612900b90ead84391c453261d",
+  "sourceRef": "17724d",
   "_version": 1,
+  "status": "New",
   "artifacts": [
     {
-      "data": "218.92.0.210",
+      "data": "106.52.208.136",
       "dataType": "source_ip",
       "message": null,
       "tags": [],
       "tlp": 2
     },
     {
-      "data": "200.16.22.127",
+      "data": "200.16.22.226",
       "dataType": "destination_ip",
       "message": null,
       "tags": [],
       "tlp": 2
     },
     {
-      "data": "27255",
+      "data": "60782",
       "dataType": "source_port",
       "message": null,
       "tags": [],
       "tlp": 2
     },
     {
-      "data": "22",
+      "data": "80",
       "dataType": "destination_port",
       "message": null,
       "tags": [],
@@ -59,7 +60,7 @@
       "tlp": 2
     },
     {
-      "data": "2019-07-17T16:21:11.815Z",
+      "data": "2019-07-21T23:49:47.501Z",
       "dataType": "timestamp",
       "message": null,
       "tags": [],
@@ -72,6 +73,5 @@
       "tags": [],
       "tlp": 2
     }
-  ],
-  "status": "New"
+  ]
 }
