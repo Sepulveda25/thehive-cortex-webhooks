@@ -1,4 +1,4 @@
-# Instalacion Webhooks para TheHive y respuesta automatica
+# Instalacion Webhooks para TheHive y respuesta automatica a alertas
 
 ##  Pre-requisitos:
 
