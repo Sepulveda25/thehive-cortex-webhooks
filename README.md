@@ -1,4 +1,6 @@
-#  Pre-requisitos:
+# Instalacion weebhooks para TheHive y respuesta automatica
+
+##  Pre-requisitos:
 
 - Python 3.6
 - Tener TheHive instalado, agregar al archivo application.conf (`/etc/thehive/application.conf`):
@@ -12,7 +14,7 @@ webhooks {
 }
 ```
 
-#  Instrucciones:
+##  Instrucciones:
 
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
@@ -48,11 +50,7 @@ webhooks {
 }
 ```
 
-
-
-
-
-#  Referencias:
+##  Referencias:
 
 * https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/webhooks.md#configuration
 * https://github.com/TheHive-Project/TheHiveHooks
