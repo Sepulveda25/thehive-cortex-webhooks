@@ -1,6 +1,16 @@
 #  Pre-requisitos:
 
 - Python 3.6
+- Tener TheHive instalado, agregar al archivo application.conf ( cat /etc/thehive/application.conf):
+
+```
+#The Hive Hooks local
+webhooks {
+  myLocalWebHook {
+    url = "http://my_HTTP_endpoint/webhook"
+  }
+}
+```
 
 #  Instrucciones:
 
