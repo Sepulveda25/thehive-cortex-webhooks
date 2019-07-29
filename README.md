@@ -1,13 +1,16 @@
 # Instalacion Webhooks para TheHive y respuesta automatica a alertas
 
-Table of contents
+Tabla de contenidos
 =================
 
 <!--ts-->
    * [Pre-requisitos](#Pre-requisitos)
+   * [Instrucciones de instalacion](#Instrucciones de instalacion)
+   * [Instrucciones de testeo rapido](#Instrucciones de testeo rapido)
+   * [Referencias](#Referencias)
 <!--te-->
 
-Pre-requisitos:
+Pre-requisitos
 =====
 
 - Python 3.6
@@ -22,7 +25,8 @@ webhooks {
 }
 ```
 
-##  Instrucciones de instalacion:
+Instrucciones de instalacion
+=====
 
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
@@ -60,7 +64,8 @@ webhooks {
 ```
 
 
-##  Instrucciones de testeo rapido:
+Instrucciones de testeo rapido
+=====
 
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
@@ -78,7 +83,8 @@ Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
 
 
 
-##  Referencias:
+Referencias
+=====
 
 * https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/webhooks.md#configuration
 * https://github.com/TheHive-Project/TheHiveHooks
