@@ -3,27 +3,8 @@
 1. [My first title](#my-first-title)
 2. [My second title](#my-second-title)
 
+
 ## My first title
-Some text.
-## My second title
-
-
-
-# Table of Contents
-
-1. [Pre-requisitos](#Pre-requisitos)
-2. [Instrucciones de instalacion](#Instrucciones de instalacion)
-
-# Tabla de contenidos
-
-   * [Pre-requisitos](#Pre-requisitos)
-   * [Instrucciones de instalacion](#Instrucciones de instalacion)
-   * [Instrucciones de testeo rapido](#Instrucciones de testeo rapido)
-   * [Referencias](#Referencias)
-
-
-
-## Pre-requisitos
 
 - Python 3.6
 - Tener TheHive instalado, agregar al archivo application.conf (`/etc/thehive/application.conf`):
@@ -37,7 +18,7 @@ webhooks {
 }
 ```
 
-## Instrucciones de instalacion
+## My second title
 
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
