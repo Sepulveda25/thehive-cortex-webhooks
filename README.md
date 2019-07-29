@@ -1,23 +1,12 @@
-# Tabla de contenidos
-
-1. [Pre requisitos](#my-first-title)
-2. [Instrucciones de instalacion](#instrucciones-de-instalacion)
-
-
-## My first title
-Some text.
-## My second title
-
-
 # Instalacion Webhooks para TheHive y respuesta automatica a alertas
 
 
 # Tabla de contenidos
 
-1. [Pre requisitos](#Pre-requisitos)
-2. [Instrucciones de instalacion](#Instrucciones-de-instalacion)
-3. [Instrucciones de testeo rapido](#Instrucciones-de-testeo-rapido)
-4. [Referencias](#Referencias)
+1. [Pre requisitos](#pre-requisitos)
+2. [Instrucciones de instalacion](#instrucciones-de-instalacion)
+3. [Instrucciones de testeo rapido](#instrucciones-de-testeo-rapido)
+4. [Referencias](#referencias)
 
 
 
