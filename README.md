@@ -1,6 +1,9 @@
+# Tabla de contenidos
 
-1. [My first title](#my-first-title)
-2. [My second title](#my-second-title)
+1. [Pre requisitos](#my-first-title)
+2. [Instrucciones de instalacion](#my-second-title)
+
+
 ## My first title
 Some text.
 ## My second title
