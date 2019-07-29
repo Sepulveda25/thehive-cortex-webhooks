@@ -7,9 +7,6 @@ import sys
 sys.path.insert(0, './funciones')
 
 from alerts import alert_new
-from cases import case_new, case_delete, case_update
-from tasks import task_new, task_update, task_delete, task_complete
-from observers import observe_new, observe_update, observe_delete
 from respuesta_automatica import *
 from slack_send import slack_send
 
@@ -51,50 +48,6 @@ def process():  # If logic
     for k in keys:
         keypath, val = next(find_key(data, k))
         print("{!r}: {!r}".format(k, val))
-    if (data['objectType']) == 'case':
-        if (data['operation']) == 'Creation':  # Case created, updated, deleted
-            post = case_new()
-            slack_send(post)
-            print (post)
-        elif (data['operation']) == 'Update':            
-            post = case_update()
-            slack_send(post)
-            print (post)
-        elif (data['operation']) == 'Delete':
-            post = case_delete()
-            slack_send(post)
-            print (post)
-    if (data['objectType']) == 'case_task': # Task created deleted, completed, updated
-        if (data['operation']) == 'Creation':        
-            post = task_new()
-            slack_send(post)
-            print (post)
-        elif (data['object']['status']) == 'Cancel':        
-            post = task_delete()
-            slack_send(post)
-            print (post)
-        elif (data['object']['status']) == 'Completed':         
-            post = task_complete()
-            slack_send(post)
-            print (post)
-        elif (data['operation']) == 'Update':
-            if (data['object']['status']) == 'InProgress':
-                post = task_update()
-                slack_send(post)
-                print (post)         
-    if (data['objectType']) == 'case_artifact': # Observable created, updated, deleted
-        if (data['operation']) == 'Creation':
-            post = observe_new()
-            slack_send(post)
-            print (post)            
-        elif(data['operation']) == 'Update':
-            post = observe_update()
-            slack_send(post)
-            print (post)   
-        elif (data['operation']) == 'Delete':
-            post = observe_delete()
-            slack_send(post)
-            print (post)
     if (data['objectType']) == 'alert': # Creacion de alertas
         if (data['operation']) == 'Creation':
             #post = alert_new()

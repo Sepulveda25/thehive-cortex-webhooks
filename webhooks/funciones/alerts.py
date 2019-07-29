@@ -3,7 +3,7 @@
 from parametros import *
 
 def alert_new():	
-#parseo de la alerta:
+#parseo de la alerta, obtengo el json:
 #obtengo campo artifacts:
     
     print("Nueva Alerta!")

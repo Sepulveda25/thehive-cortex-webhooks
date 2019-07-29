@@ -4,7 +4,7 @@ from parametros import *
 from netaddr import IPNetwork, IPAddress
 import urllib.request 
 
-#recibe una ip y chequea si es interna en PSI UNC
+#recibe una ip y chequea si es interna en PSI UNC consultando la base wiki
 
 def match_ip_internal(ip):
 	
