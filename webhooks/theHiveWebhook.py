@@ -10,7 +10,7 @@ from alerts import alert_new
 from cases import case_new, case_delete, case_update
 from tasks import task_new, task_update, task_delete, task_complete
 from observers import observe_new, observe_update, observe_delete
-from respuesta import *
+from respuesta_automatica import *
 from slack_send import slack_send
 
 def find_key(obj, key):  # recursive generator
@@ -97,10 +97,10 @@ def process():  # If logic
             print (post)
     if (data['objectType']) == 'alert': # Creacion de alertas
         if (data['operation']) == 'Creation':
-            post = alert_new()
-            slack_send(post)
-            print (post)      
-            respuesta() #activa la respuesta            
+            #post = alert_new()
+            #slack_send(post)
+            #print (post)
+            respuesta_automatica() #activa la respuesta
     return 'ok'
 
 

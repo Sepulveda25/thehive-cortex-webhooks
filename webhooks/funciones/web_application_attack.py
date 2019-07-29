@@ -1,48 +1,26 @@
 #!/usr/bin/python3
 
 from parametros import *
-from web_application_attack import *
 
-def web_application_attack():	
-#parseo de la alerta:
-#obtengo campo artifacts:
-    
-    print("Soy el programa de respuesta!")
-    data = json.loads(request.data.decode('utf-8'))
-    artifacts=data['object']['artifacts']
- 
-    #en el campo description tenemos category!
+def web_application_attack(data):
 
-    description = data['object']['description']
-    print ("description: " + description)
+    print("Llamo al respoder correspondiente")
 
+    #url = 'http://172.16.81.110:9001/api/responder/_search?range=all'
+    url = 'http://172.16.81.110:9001/api/responder/29165d3c9329be9dd8a439fc1d4a1d66/run'
 
-    source_ip = 0
-    destination_ip = 0
+    headers = {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer baDVP07GJj7uOcWEp7sSpU+oJ42/GJKr"
+               }
 
+    print(data)
 
+    #datos = {"label":"[SecurityOnion:57ba6f] New IDS Alert! -- SURICATA SMTP invalid pipelined sequence ","data":{"severity":"3","date":"1564081498000","_routing":"f484b8ae64474689352604ccb9985f54","customFields":{},"caseTemplate":"null","_type":"alert","description":"[1:2220004:1] SURICATA SMTP invalid pipelined sequence [Classification: Generic Protocol Command Decode] [Priority: 3]: <sonion-virtual-machine-ens192> {TCP} 200.16.22.73:60916 -> 200.16.22.1:25","lastSyncDate":"1564081494991","source":"SecurityOnion","title":"New IDS Alert! -- SURICATA SMTP invalid pipelined sequence ","type":"external","follow":"true","tags":["elastalert, SecurityOnion, {match[category]}"],"createdAt":"1564081494990","_parent":"null","createdBy":"eco","tlp":"3","_id":"f484b8ae64474689352604ccb9985f54","id":"f484b8ae64474689352604ccb9985f54","sourceRef":"57ba6f","_version":"1","artifacts":[{"data":"200.16.22.73","dataType":"source_ip","message":"null","tags":[],"tlp":"2"},{"data":"200.16.22.1","dataType":"destination_ip","message":"null","tags":[],"tlp":"2"},{"data":"60916","dataType":"source_port","message":"null","tags":[],"tlp":"2"},{"data":"25","dataType":"destination_port","message":"null","tags":[],"tlp":"2"},{"data":"sonion-virtual-machine-ens192","dataType":"interface","message":"null","tags":[],"tlp":"2"},{"data":"2019-07-25T18:59:57.732Z","dataType":"timestamp","message":"null","tags":[],"tlp":"2"},{"data":"snort","dataType":"event_type","message":"null","tags":[],"tlp":"2"}],"status":"New"},"dataType":"thehive:alert","tlp":"2","pap":"2","message":"","parameters":{"user":"thehive"}}
 
-#para cada objeto de la lista artifacts filtro por la
-#linea que tiene destination_ip como ip.
-    for element in artifacts:
-        if element["dataType"]=="source_ip":
-            source_ip = element["data"]  	   
-            #print ("IP origen: " + source_ip)
-        if element["dataType"]=="destination_ip":
-            destination_ip = element["data"]  	   
-            #print ("IP destino: " + destination_ip)
+    r = requests.post(url, data=json.dumps(data), headers=headers)
 
-#busco si hay ip externa o interna
-    octetos_source_ip = source_ip.split('.')
-    octetos_destination_ip = destination_ip.split('.')
-    dosOctetos = octetos[0] + "." + octetos[1]
-    tresOctetos = dosOctetos + "." + octetos[2]
-
-#busco en el campo description si coincide con la clasificacion
-    if (description.find("Web Application Attack") > 0):
-        print ("Si encontre clasificacion")
-	web_application_attack()
-
+    print(r)
 
 
 
