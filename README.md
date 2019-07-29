@@ -1,10 +1,10 @@
 # Table of Contents
 
-1. [My first title](#my-first-title)
+1. [Pre requisitos](#Pre requisitos)
 2. [My second title](#my-second-title)
 
 
-## My first title
+## Pre requisitos
 
 - Python 3.6
 - Tener TheHive instalado, agregar al archivo application.conf (`/etc/thehive/application.conf`):
