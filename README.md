@@ -10,8 +10,7 @@ Tabla de contenidos
    * [Referencias](#Referencias)
 <!--te-->
 
-Pre-requisitos
-=====
+##Pre-requisitos
 
 - Python 3.6
 - Tener TheHive instalado, agregar al archivo application.conf (`/etc/thehive/application.conf`):
@@ -25,8 +24,7 @@ webhooks {
 }
 ```
 
-Instrucciones de instalacion
-=====
+##Instrucciones de instalacion
 
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
