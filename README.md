@@ -1,7 +1,7 @@
 # Tabla de contenidos
 
 1. [Pre requisitos](#my-first-title)
-2. [Instrucciones de instalacion](#my-second-title)
+2. [Instrucciones de instalacion](#nstrucciones-de-instalacion)
 
 
 ## My first title
@@ -97,7 +97,4 @@ Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
 * https://github.com/TheHive-Project/TheHiveHooks
 * https://github.com/cybergoatpsyops/TheHive-SideProjects
 * https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
-* 
-
-
 
