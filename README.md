@@ -4,11 +4,12 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Pre-requisitos](##Pre-requisitos)
+   * [Pre-requisitos](Pre-requisitos)
 <!--te-->
 
 
-##  Pre-requisitos:
+##Pre-requisitos:
+=====
 
 - Python 3.6
 - Tener TheHive instalado, agregar al archivo application.conf (`/etc/thehive/application.conf`):
