@@ -58,7 +58,7 @@ webhooks {
 
 Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
 
-1.  Dar de baja el servicio `webhooks.service` creado en la etapa Instrucciones de instalacion:
+1.  Dar de baja el servicio `webhooks.service` creado en la etapa `Instrucciones de instalacion`:
     <br />`$ sudo systemctl stop webhooks.service`
 2. Dentro de la carpeta webhook activar entorno virtual:
     <br />`$ source webhooksenv/bin/activate`
