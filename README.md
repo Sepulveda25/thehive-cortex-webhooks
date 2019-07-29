@@ -4,7 +4,7 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Pre-requisitos](Pre-requisitos)
+   * [Pre-requisitos](#Pre-requisitos)
 <!--te-->
 
 Pre-requisitos:
