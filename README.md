@@ -14,7 +14,7 @@ webhooks {
 }
 ```
 
-##  Instrucciones:
+##  Instrucciones de instalacion:
 
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
