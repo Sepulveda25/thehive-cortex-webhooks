@@ -19,7 +19,7 @@ webhooks {
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
 
-1.  Pegar carpeta webhooks en home.
+1.  Pegar carpeta webhooks en home y acceder a dicha carpeta.
 2.  Eliminar carpeta `webhooksenv` en caso de existir.
 3. Crear entorno virtual:
     <br />`$ python3.6 -m venv webhooksenv`
@@ -50,6 +50,25 @@ webhooks {
   }
 }
 ```
+
+
+##  Instrucciones de testeo rapido:
+
+(Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
+
+Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
+
+1.  Dar de baja el servicio `webhooks.service` creado en la etapa Instrucciones de instalacion:
+    <br />`$ sudo systemctl stop webhooks.service`
+2. Dentro de la carpeta webhook activar entorno virtual:
+    <br />`$ source webhooksenv/bin/activate`
+3. Ejecutar programa principal con python:
+    <br />`$  python theHiveWebhook.py`
+4.  Al finaliza desactivar entorno virtual:
+    <br />`$ deactivate`
+5.  Reactivar servicio si se lo desea de acuerdo al `paso 10` del apartado `Instrucciones de instalacion`.
+
+
 
 ##  Referencias:
 
