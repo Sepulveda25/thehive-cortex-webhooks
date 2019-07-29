@@ -1,7 +1,13 @@
-# Table of Contents
+# Instalacion Webhooks para TheHive y respuesta automatica a alertas
 
-1. [Pre requisitos](#Pre requisitos)
-2. [My second title](#my-second-title)
+
+# Tabla de contenidos
+
+1. [Pre requisitos](#Pre-requisitos)
+2. [Instrucciones de instalacion](#Instrucciones-de-instalacion)
+3. [Instrucciones de testeo rapido](#Instrucciones-de-testeo-rapido)
+4. [Referencias](#Referencias)
+
 
 
 ## Pre requisitos
@@ -18,7 +24,7 @@ webhooks {
 }
 ```
 
-## My second title
+## Instrucciones de instalacion
 
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
@@ -56,8 +62,7 @@ webhooks {
 ```
 
 
-Instrucciones de testeo rapido
-=====
+## Instrucciones de testeo rapido
 
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
 
@@ -75,8 +80,7 @@ Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
 
 
 
-Referencias
-=====
+## Referencias
 
 * https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/webhooks.md#configuration
 * https://github.com/TheHive-Project/TheHiveHooks
@@ -84,6 +88,5 @@ Referencias
 * https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
 * 
 
-# Instalacion Webhooks para TheHive y respuesta automatica a alertas
 
 
