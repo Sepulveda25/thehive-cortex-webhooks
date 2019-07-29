@@ -1,7 +1,7 @@
 # Instalacion Webhooks para TheHive y respuesta automatica a alertas
 
 
-# Tabla de contenidos
+## Tabla de contenidos
 
 1. [Pre requisitos](#pre-requisitos)
 2. [Instrucciones de instalacion](#instrucciones-de-instalacion)
