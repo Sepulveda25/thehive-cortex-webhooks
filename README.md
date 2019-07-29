@@ -9,7 +9,10 @@ Some text.
 
 
 
+# Table of Contents
 
+1. [Pre-requisitos](#Pre-requisitos)
+2. [Instrucciones de instalacion](#Instrucciones de instalacion)
 
 # Tabla de contenidos
 
