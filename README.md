@@ -1,4 +1,3 @@
-
 # Table of Contents
 
 1. [My first title](#my-first-title)
@@ -14,12 +13,10 @@ Some text.
 
 # Tabla de contenidos
 
-<!--ts-->
    * [Pre-requisitos](#Pre-requisitos)
    * [Instrucciones de instalacion](#Instrucciones de instalacion)
    * [Instrucciones de testeo rapido](#Instrucciones de testeo rapido)
    * [Referencias](#Referencias)
-<!--te-->
 
 ## Pre-requisitos
 
