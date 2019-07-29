@@ -1,7 +1,7 @@
 # Tabla de contenidos
 
 1. [Pre requisitos](#my-first-title)
-2. [Instrucciones de instalacion](#nstrucciones-de-instalacion)
+2. [Instrucciones de instalacion](#instrucciones-de-instalacion)
 
 
 ## My first title
