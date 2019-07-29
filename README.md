@@ -7,8 +7,7 @@ Table of contents
    * [Pre-requisitos](Pre-requisitos)
 <!--te-->
 
-
-##Pre-requisitos:
+Pre-requisitos:
 =====
 
 - Python 3.6
