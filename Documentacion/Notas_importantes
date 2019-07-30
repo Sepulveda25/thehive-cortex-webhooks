@@ -13,3 +13,5 @@
   #buscar de donde sale label, data, dataTYPE
   
    # https://github.com/TheHive-Project/TheHive/blob/master/thehive-cortex/app/connectors/cortex/services/CortexActionSrv.scala
+   
+   lo busca con cortexClient.execute
