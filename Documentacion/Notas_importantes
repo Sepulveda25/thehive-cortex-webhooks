@@ -1,0 +1,13 @@
+ 
+ 
+ # https://github.com/TheHive-Project/TheHive/blob/master/thehive-cortex/app/connectors/cortex/services/CortexClient.scala
+ 
+  def execute(responderId: String, label: String, dataType: String, data: JsValue, tlp: Long, pap: Long, message: String, parameters: JsObject)(
+      implicit ec: ExecutionContext
+  ): Future[JsValue] = {
+    val body =
+      Json.obj("label" → label, "data" → data, "dataType" → dataType, "tlp" → tlp, "pap" → pap, "message" → message, "parameters" → parameters)
+    request(s"api/responder/$responderId/run", _.post(body), _.json.as[JsObject])
+  }
+  
+  #buscar de donde sale label, data, dataTYPE
