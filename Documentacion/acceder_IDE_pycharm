@@ -1,0 +1,6 @@
+
+#Comando para acceder a la IDE pycharm
+cd /opt/pycharm-*/bin
+
+sh pycharm.sh
+
