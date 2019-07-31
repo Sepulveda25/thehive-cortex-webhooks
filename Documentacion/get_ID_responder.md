@@ -20,7 +20,6 @@ Luego se analiza el intercambio de mensajes entre TheHive y Cortex en Wireshark.
 ![alt text](https://gitlab.unc.edu.ar/csirt/webhooks/blob/master/Documentacion/imagenes%20documentacion/obtener_ID_responder_2.png)
 
 The Hive envia una solicitud POST: /api/responder/_search?range=all 
-https://gitlab.unc.edu.ar/csirt/webhooks/blob/master/Documentacion/imagenes%20documentacion/obtener_ID_responder_3.png
 
 ![alt text](https://gitlab.unc.edu.ar/csirt/webhooks/blob/master/Documentacion/imagenes%20documentacion/obtener_ID_responder_3.png)
 
