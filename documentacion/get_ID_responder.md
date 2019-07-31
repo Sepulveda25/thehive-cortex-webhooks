@@ -43,10 +43,13 @@ el nombre del Responder para luego obtener el valor del campo ID.
 ![](imagenes/obtener_ID_responder_4.png)
 
 
-
 ## Codigo en Python
 
 ```
+
+#!/usr/bin/python3
+
+
 def web_application_attack(data):
 
     print("Busco ID del responder")
