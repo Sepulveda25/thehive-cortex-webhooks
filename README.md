@@ -78,7 +78,8 @@ Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
     <br />`$ deactivate`
 5.  Reactivar servicio si se lo desea de acuerdo al `paso 10` del apartado `Instrucciones de instalacion`.
 
-
+Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para testear TheHive
+(cambiar el campo sourceref cada vez que se ejecuta).
 
 ## Referencias
 
