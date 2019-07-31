@@ -13,21 +13,21 @@ contiene TheHive, filtrando el puerto 9001 correspondiente a Cortex.
 En la interfaz de TheHive activamos algun Responder (en este caso la alerta cuenta
 con todos los observables que requiere el Responder).
 
-![alt text](https://gitlab.unc.edu.ar/csirt/webhooks/blob/master/Documentacion/imagenes%20documentacion/obtener_ID_responder_1.png)
+![](imagenes/obtener_ID_responder_1.png)
 
 Luego se analiza el intercambio de mensajes entre TheHive y Cortex en Wireshark.
 
-![alt text](https://gitlab.unc.edu.ar/csirt/webhooks/blob/master/Documentacion/imagenes%20documentacion/obtener_ID_responder_2.png)
+![](imagenes/obtener_ID_responder_2.png)
 
 The Hive envia una solicitud POST: /api/responder/_search?range=all 
 
-![alt text](https://gitlab.unc.edu.ar/csirt/webhooks/blob/master/Documentacion/imagenes%20documentacion/obtener_ID_responder_3.png)
+![](imagenes/obtener_ID_responder_3.png)
 
 Cortex respode la solicitud enviando un JSON. Este JSON contiene un object para
 cada Responder, de esta podemos analizar los campos Name hasta que coincida con
 el nombre del Responder para luego obtener el valor del campo ID.
 
-![alt text](https://gitlab.unc.edu.ar/csirt/webhooks/blob/master/Documentacion/imagenes%20documentacion/obtener_ID_responder_4.png)
+![](imagenes/obtener_ID_responder_4.png)
 
 
 
