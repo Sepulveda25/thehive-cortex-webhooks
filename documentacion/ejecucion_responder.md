@@ -43,7 +43,7 @@ Dentro de este mensaje envia un JSON que tiene la forma del documento:
 
 
 Cortex respode la solicitud enviando mensaje HTTP/1.1 200 OK. En el cual se incluye
-un JSON de la forma del documento: `json_thehive_to_cortex.json`, dentro hay un 
+un JSON de la forma del documento: `json_cortex_to_hive.json`, dentro hay un 
 campo `id` (tambien los campos `_id` y `_routing` contienen la misma informacion), 
 que inidica el ID de la ejecucion del responder. 
 
