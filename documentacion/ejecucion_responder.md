@@ -1,4 +1,4 @@
-# Obtener ID de un responder a traves de su nombre
+# Ejecutar responder
 
 ## Tabla de contenidos
 
@@ -8,8 +8,8 @@
 
 ## Analisis de mensajes intercambiados
 
-Se detalla como TheHive obtiene el ID de un Responder de Cortex en base al 
-nombre del Responder.
+Se detalla como TheHive ejecuta un Responder de Cortex en base al ID de mismo 
+obtenido anteriormente (Este paso se detalla en el documento `get_ID_responder.md`).
 
 Para ello se analiza los paquetes en Wireshark.
 
@@ -20,27 +20,51 @@ En la interfaz de TheHive activamos algun Responder (en este caso la alerta cuen
 con todos los observables que requiere el Responder).
 
 
-![](imagenes/obtener_ID_responder_1.png)
+![](imagenes/ejecucion_responder_1.png)
 
 
 Luego se analiza el intercambio de mensajes entre TheHive y Cortex en Wireshark.
 
 
-![](imagenes/obtener_ID_responder_2.png)
+![](imagenes/ejecucion_responder_2.png)
 
 
-The Hive envia una solicitud POST: /api/responder/_search?range=all 
+TheHive envia una solicitud POST: 
+`POST /api/responder/460d2164401c0079784ef0778eceb8ca/run`
+(460d2164401c0079784ef0778eceb8ca es el ID del responder obtenido en los mensajes
+anteriores, cuyo funcionamiento se detalla en el documento `get_ID_responder.md`)
 
 
-![](imagenes/obtener_ID_responder_3.png)
+![](imagenes/ejecucion_responder_3.png)
 
 
-Cortex respode la solicitud enviando un JSON. Este JSON contiene un object para
-cada Responder, de esta podemos analizar los campos Name hasta que coincida con
-el nombre del Responder para luego obtener el valor del campo ID.
+Dentro de este mensaje envia un JSON que tiene la forma del documento: 
+`json_thehive_to_cortex.json`.
 
 
-![](imagenes/obtener_ID_responder_4.png)
+Cortex respode la solicitud enviando mensaje HTTP/1.1 200 OK. En el cual se incluye
+un JSON de la forma del documento: `json_thehive_to_cortex.json`, dentro hay un 
+campo `id` (tambien los campos `_id` y `_routing` contienen la misma informacion), 
+que inidica el ID de la ejecucion del responder. 
+
+![](imagenes/ejecucion_responder_4.png)
+
+
+Luego TheHive envia una solicitud GET, que contiene el ID de la ejecucion del 
+responder (ejemplo: `AWyRuHfRrefEjDnmkcit`) el cual extrae en el JSON anterior, 
+esto le permite obtener informacion sobre la ejecucion del responder (exitosa o no):
+
+`GET /api/job/AWyRuHfRrefEjDnmkcit/waitreport?atMost=60000000000%20nanoseconds HTTP/1.1`
+
+
+![](imagenes/ejecucion_responder_5.png)
+
+
+
+Cortex responde a esta solucitud GET con un JSON que tiene la forma del documento:
+`json_cortex_to_thehive_waitreport.json`, donde el campo report dentro del JSON 
+indica si la ejecucion fue exitosa o no.
+
 
 
 ## Codigo en Python
@@ -50,37 +74,8 @@ el nombre del Responder para luego obtener el valor del campo ID.
 #!/usr/bin/python3
 
 
-def web_application_attack(data):
+```
 
-    print("Busco ID del responder")
-
-    cortexURL = 'http://172.16.81.110:9001'  # Your Cortex URL
-    responder_name = 'MailsExcel'
-    id_responder = 0
-
-    search_url =  cortexURL + '/api/responder/_search?range=all'
-
-    search_headers = {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer baDVP07GJj7uOcWEp7sSpU+oJ42/GJKr"
-               }
-
-    search_data = {"query":{"dataTypeList":"thehive:alert"}}
-
-    r = requests.post(search_url, data=json.dumps(search_data), headers=search_headers)
-    json_response = r.json()
-
-
-
-    #print(json_response)
-    #Busco adentro del array el coincide con el responder con el opeardor "in"
-    for i in json_response:
-        if (responder_name in i['name']):
-            id_responder = i['id']
-            break
-
-
-    print(id_responder)
 
 
 
