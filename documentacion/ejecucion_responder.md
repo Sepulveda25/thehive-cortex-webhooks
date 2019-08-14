@@ -71,8 +71,27 @@ indica si la ejecucion fue exitosa o no.
 
 ```
 
-#!/usr/bin/python3
+import json
 
+
+def run_responder(imput_json, id_responder):
+
+    url = cortexURL + '/api/responder/' + id_responder + '/run'
+
+    # headers para la solicitud 
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer baDVP07GJj7uOcWEp7sSpU+oJ42/GJKr"
+    }
+
+
+    #Ejecuto Cortex con JSON imput
+
+    r = requests.post(url, data=json.dumps(imput_json), headers=headers)
+
+    #print(r.content)
+
+    return r
 
 ```
 
