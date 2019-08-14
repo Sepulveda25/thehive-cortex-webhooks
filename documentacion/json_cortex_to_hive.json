@@ -1,0 +1,130 @@
+{
+   "pap":2,
+   "workerName":"slackNotificacion_1_0",
+   "status":"Waiting",
+   "parameters":{
+      "user":"thehive"
+   },
+   "organization":"ECO",
+   "workerId":"460d2164401c0079784ef0778eceb8ca",
+   "dataType":"thehive:alert",
+   "workerDefinitionId":"slackNotificacion_1_0",
+   "message":"",
+   "label":"[SecurityOnion:5487f6] New IDS Alert! -- ET EXPLOIT HackingTrio UA (Hello, World) ",
+   "createdBy":"eco_csirt",
+   "data":{
+      "severity":3,
+      "date":1565812422000,
+      "_routing":"7713f1c7fe3fea8a79717dae65132256",
+      "customFields":{
+
+      },
+      "caseTemplate":null,
+      "_type":"alert",
+      "description":"[1:2025576:2] ET EXPLOIT HackingTrio UA (Hello, World) [Classification: Attempted Administrator Privilege Gain] [Priority: 1]: <sonion-virtual-machine-ens192> {TCP} 149.129.226.204:54228 -> 200.16.22.93:80",
+      "lastSyncDate":1565812421318,
+      "source":"SecurityOnion",
+      "title":"New IDS Alert! -- ET EXPLOIT HackingTrio UA (Hello, World) ",
+      "type":"external",
+      "follow":true,
+      "tags":[
+         "elastalert, SecurityOnion, exploit"
+      ],
+      "createdAt":1565812421317,
+      "_parent":null,
+      "createdBy":"eco",
+      "tlp":3,
+      "_id":"7713f1c7fe3fea8a79717dae65132256",
+      "id":"7713f1c7fe3fea8a79717dae65132256",
+      "sourceRef":"5487f6",
+      "_version":1,
+      "artifacts":[
+         {
+            "data":"149.129.226.204",
+            "dataType":"source_ip",
+            "message":null,
+            "tags":[
+
+            ],
+            "tlp":2
+         },
+         {
+            "data":"200.16.22.93",
+            "dataType":"destination_ip",
+            "message":null,
+            "tags":[
+
+            ],
+            "tlp":2
+         },
+         {
+            "data":"54228",
+            "dataType":"source_port",
+            "message":null,
+            "tags":[
+
+            ],
+            "tlp":2
+         },
+         {
+            "data":"80",
+            "dataType":"destination_port",
+            "message":null,
+            "tags":[
+
+            ],
+            "tlp":2
+         },
+         {
+            "data":"sonion-virtual-machine-ens192",
+            "dataType":"interface",
+            "message":null,
+            "tags":[
+
+            ],
+            "tlp":2
+         },
+         {
+            "data":"2019-08-14T19:52:35.872Z",
+            "dataType":"timestamp",
+            "message":null,
+            "tags":[
+
+            ],
+            "tlp":2
+         },
+         {
+            "data":"snort",
+            "dataType":"event_type",
+            "message":null,
+            "tags":[
+
+            ],
+            "tlp":2
+         },
+         {
+            "data":"https://172.16.81.50/capme/?sip=149.129.226.204&dip=200.16.22.93&spt=54228&dpt=80&stime=1565715445&etime=1565722645&filename=squert",
+            "dataType":"url",
+            "message":null,
+            "tags":[
+
+            ],
+            "tlp":2
+         }
+      ],
+      "status":"New"
+   },
+   "type":"responder",
+   "createdAt":1565812881359,
+   "tlp":2,
+   "_type":"job",
+   "_id":"AWyRuHfRrefEjDnmkcit",
+   "_parent":null,
+   "_routing":"AWyRuHfRrefEjDnmkcit",
+   "_version":1,
+   "id":"AWyRuHfRrefEjDnmkcit",
+   "analyzerId":"460d2164401c0079784ef0778eceb8ca",
+   "analyzerName":"slackNotificacion_1_0",
+   "analyzerDefinitionId":"slackNotificacion_1_0",
+   "date":1565812881359
+}
