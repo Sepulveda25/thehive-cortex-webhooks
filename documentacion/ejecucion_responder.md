@@ -70,9 +70,7 @@ indica si la ejecucion fue exitosa o no.
 ## Codigo en Python
 
 ```
-
 import json
-
 
 def run_responder(imput_json, id_responder):
 
@@ -92,7 +90,6 @@ def run_responder(imput_json, id_responder):
     #print(r.content)
 
     return r
-
 ```
 
 
