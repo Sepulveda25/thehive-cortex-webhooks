@@ -6,7 +6,26 @@ import urllib.request
 
 #recibe una ip y chequea si es interna en PSI UNC consultando la base wiki
 
-def match_ip_internal(ip):
+def match_ip_internal(ip): #COMPLEATRRRRRRR
+
+    data = json.loads(request.data.decode('utf-8'))
+    artifacts=data['object']['artifacts']
+
+
+    source_ip = 0
+    destination_ip = 0
+    source_ip_internal = 0
+    destination_ip_internal = 0
+
+    # para cada objeto de la lista artifacts filtro por la
+    # linea que tiene destination_ip como ip.
+    for element in artifacts:
+        if element["dataType"] == "source_ip":
+            source_ip = element["data"]
+            #            print ("IP origen: " + source_ip)
+        if element["dataType"] == "destination_ip":
+            destination_ip = element["data"]
+            #            print ("IP destino: " + destination_ip)
 	
     ip_internal = 0
 #Se obtienen las ip por octetos!

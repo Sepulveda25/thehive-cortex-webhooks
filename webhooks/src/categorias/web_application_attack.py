@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
+
 from parametros import *
+
+import sys
+sys.path.insert(0, '../funciones')
 from hive2cortex import *
 from get_ID_responder import *
 from run_responder import *
