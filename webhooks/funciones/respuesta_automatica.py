@@ -36,14 +36,14 @@ def respuesta_automatica():
 
 #busco en el campo description si coincide con la clasificacion
     if (description.find("Web Application Attack") > 0):
-        if (match_ip_internal(source_ip) == 1):
-                source_ip_internal = 1;
-                print ("IP origen es interna")
-        if ( match_ip_internal(destination_ip) == 1):
-                destination_ip_internal = 1;
-                print ("IP destino es interna")
-        if(source_ip_internal == 1 or destination_ip_internal == 1):
-            web_application_attack(data)
+   #     if (match_ip_internal(source_ip) == 1):
+   #             source_ip_internal = 1;
+   #             print ("IP origen es interna")
+   #     if ( match_ip_internal(destination_ip) == 1):
+   #             destination_ip_internal = 1;
+   #             print ("IP destino es interna")
+   #     if(source_ip_internal == 1 or destination_ip_internal == 1):
+        web_application_attack(data)
 
 
 
