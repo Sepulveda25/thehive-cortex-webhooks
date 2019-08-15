@@ -47,40 +47,37 @@ el nombre del Responder para luego obtener el valor del campo ID.
 
 ```
 
-#!/usr/bin/python3
+import json
 
 
-def web_application_attack(data):
+def get_ID_responder(responder_name):
 
-    print("Busco ID del responder")
-
-    cortexURL = 'http://172.16.81.110:9001'  # Your Cortex URL
-    responder_name = 'MailsExcel'
+    # cortexURL definido en paramtros.py
+    search_url = cortexURL + '/api/responder/_search?range=all'
     id_responder = 0
 
-    search_url =  cortexURL + '/api/responder/_search?range=all'
-
     search_headers = {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer baDVP07GJj7uOcWEp7sSpU+oJ42/GJKr"
-               }
+        "Content-Type": "application/json",
+        "Authorization": "Bearer baDVP07GJj7uOcWEp7sSpU+oJ42/GJKr"
+    }
 
-    search_data = {"query":{"dataTypeList":"thehive:alert"}}
+    #parametros de consulta
+    search_data = {"query": {"dataTypeList": "thehive:alert"}}
 
     r = requests.post(search_url, data=json.dumps(search_data), headers=search_headers)
     json_response = r.json()
 
-
-
-    #print(json_response)
-    #Busco adentro del array el coincide con el responder con el opeardor "in"
+    # print(json_response)
+    # Busco adentro del array el que coincide con el nombre del responder
     for i in json_response:
         if (responder_name in i['name']):
             id_responder = i['id']
             break
 
+    # ya tengo el ID del repsonder
+    #print(id_responder)
 
-    print(id_responder)
+    return id_responder
 
 
 
