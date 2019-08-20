@@ -13,6 +13,8 @@
 ## Pre requisitos
 
 - Python 3.6
+- instalar thehive4py:
+        sudo pip install thehive4py
 - Tener TheHive instalado, agregar al archivo application.conf (`/etc/thehive/application.conf`):
 
 ```
