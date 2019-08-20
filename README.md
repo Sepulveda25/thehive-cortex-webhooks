@@ -13,8 +13,6 @@
 ## Pre requisitos
 
 - Python 3.6
-- instalar thehive4py:
-        <br /> sudo pip install thehive4py
 - Tener TheHive instalado, agregar al archivo application.conf (`/etc/thehive/application.conf`):
 
 ```
@@ -43,6 +41,7 @@ webhooks {
 	<br />`$ pip install flask`
 	<br />`$ pip install requests`
     <br />`$ pip install netaddr`
+    <br />`$ pip install thehive4py`
 6.  Salir del entorno virtual:
     <br />`$ deactivate`
 7.  Permitir acceso puerto 5000:
