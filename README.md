@@ -6,7 +6,7 @@
 1. [Pre requisitos](#pre-requisitos)
 2. [Instrucciones de instalacion](#instrucciones-de-instalacion)
 3. [Instrucciones de testeo rapido](#instrucciones-de-testeo-rapido)
-4. 
+4. [Agregar respuesta automatica personalizada](#agregar-respuesta-automatica-personalizada)
 4. [Referencias](#referencias)
 
 
@@ -81,11 +81,16 @@ Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
 5.  Reactivar servicio si se lo desea de acuerdo al `paso 10` del apartado `Instrucciones de instalacion`.
 
 
+Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para testear TheHive
+(cambiar el campo sourceref cada vez que se ejecuta).
+
+
+
 ## Agregar respuesta automatica personalizada: 
 
 1.  Dar de baja el servicio `webhooks.service` creado en la etapa `Instrucciones de instalacion`:
     <br />`$ sudo systemctl stop webhooks.service'
-2.  Modificar o agregar al archivo `theHiveWebhook.py`: 
+2.  Modificar o agregar al archivo `theHiveWebhook.py` (se muestra una parte del codigo): 
 
     
     ```
@@ -100,44 +105,48 @@ Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
 
             if (description.find("Web Application Attack") > 0): #ejecuto la accion para la categoria
                 web_application_attack(imput_json)
-            #else if (description.find("Mi categoria 1") > 0): #ejecuto la accion para la categoria
+            #else if (description.find("mi_categoria_1") > 0): #ejecuto la accion para la categoria
             #    mi_respuesta_automatica_1(imput_json)
             #else if (description.find("Mi categoria 2") > 0): #ejecuto la accion para la categoria
             #    mi_respuesta_automatica_1(imput_json)
     ```
      
-     en las lineas (descomentadas):
-    <br> else if (description.find("Mi_categoria_1 ") > 0): #ejecuto la accion para la categoria
-    <br> mi_respuesta_automatica_1(imput_json)
+    Descomentar las lineas (o agregar una nueva comparacion en el if):
+    <br># else if (description.find("mi_categoria_1 ") > 0): #ejecuto la accion para la categoria
+    <br># mi_respuesta_automatica_1(imput_json)
     <br>
-    <br>-  Mi_categoria_1 es la categoria a la cual queremos responder automaticamente. Ejemplo: web application attack)
-    <br>-  mi_respuesta_automatica_1 es el python que se ejecutara (almacenar el mismo en src/categorias)
+    <br>- `mi_categoria_1` es la categoria a la cual queremos responder automaticamente. Ejemplo: web application attack
+    <br>- `mi_respuesta_automatica_1(imput_json)` es la funcion de un programa en python `mi_respuesta_automatica_1.py` que ejecutara la respuesta deseada (almacenar el mismo en `src/categorias`)
     
+3. Importar el programa `mi_respuesta_automatica_1` en `theHiveWebhook.py` agregando a la cabecera:
+    <br># import mi_respuesta_automatica_1
+4. El programa `mi_respuesta_automatica_1.py` se almacena en `scr/categorias`
+5. El programa podra ejecutar apps de la carpeta `funciones` en caso de desearlo, por ejemplo:
+     
+    ```
+    #!/usr/bin/python3
+    
+    # Toma una alerta con categoria "mi_respuesta_automatica_1" y corre automaticamente un responder
+    #
+    
+    import sys
+    sys.path.insert(0, '../funciones')
+    from run_responder import *
+    
+    def mi_respuesta_automatica_1(data):
+    
+    # Nombre del responder a ejectuar
+    
+        responder_name = 'slackNotificacion'
+    
+        response = run_responder(data, responder_name)
+    #    print (response)
 
-3. h
-4. h
-5. f
-6. d
-7. s
-8. s
-9. s
-10. ss
-11. a
-12. a
 
+    ```
 
-```
-webhooks {
-  myLocalWebHook {
-    url = "http://my_HTTP_endpoint/webhook"
-  }
-}
-```
-
-
-
-Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para testear TheHive
-(cambiar el campo sourceref cada vez que se ejecuta).
+6. Se puede usar 'testeo rapido' para verificar el funcionamiento del mismo (con el JSON adecuado)
+7.  Reactivar servicio si se lo desea de acuerdo al `paso 10` del apartado `Instrucciones de instalacion`.
 
 
 ## Referencias
