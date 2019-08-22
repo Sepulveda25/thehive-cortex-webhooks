@@ -78,7 +78,8 @@ Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
     <br />`$  python theHiveWebhook.py`
 4.  Al finaliza desactivar entorno virtual:
     <br />`$ deactivate`
-5.  Reactivar servicio si se lo desea de acuerdo al `paso 10` del apartado `Instrucciones de instalacion`.
+5.  Reactivar servicio si se lo desea:
+ 	<br />`$ sudo systemctl start webhooks.service`
 
 
 Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para testear TheHive
@@ -89,10 +90,9 @@ Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para tes
 ## Agregar respuesta automatica personalizada: 
 
 1.  Dar de baja el servicio `webhooks.service` creado en la etapa `Instrucciones de instalacion`:
-    <br />`$ sudo systemctl stop webhooks.service'
-2.  Modificar o agregar al archivo `theHiveWebhook.py` (se muestra una parte del codigo): 
+    <br />`$ sudo systemctl stop webhooks.service`
+2.  Modificar el archivo `theHiveWebhook.py` (se muestra una parte del codigo): 
 
-    
     ```
     if (imput_json['objectType']) == 'alert': # Creacion de alertas
         if (imput_json['operation']) == 'Creation':
@@ -101,33 +101,32 @@ Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para tes
             description = imput_json['object']['description']
             #  print ("description: " + description)
 
-            #FALTA COMPROBAR SI ES INTERNAL IP
-
-            if (description.find("Web Application Attack") > 0): #ejecuto la accion para la categoria
+            if (description.find("Web Application Attack") > 0): 
                 web_application_attack(imput_json)
-            #else if (description.find("mi_categoria_1") > 0): #ejecuto la accion para la categoria
+            #else if (description.find("mi_categoria_1") > 0): 
             #    mi_respuesta_automatica_1(imput_json)
-            #else if (description.find("Mi categoria 2") > 0): #ejecuto la accion para la categoria
+            #else if (description.find("Mi categoria 2") > 0): 
             #    mi_respuesta_automatica_1(imput_json)
     ```
      
     Descomentar las lineas (o agregar una nueva comparacion en el if):
-    <br># else if (description.find("mi_categoria_1 ") > 0): #ejecuto la accion para la categoria
+    
+    <br># else if (description.find("mi_categoria_1 ") > 0): 
     <br># mi_respuesta_automatica_1(imput_json)
     <br>
-    <br>- `mi_categoria_1` es la categoria a la cual queremos responder automaticamente. Ejemplo: web application attack
-    <br>- `mi_respuesta_automatica_1(imput_json)` es la funcion de un programa en python `mi_respuesta_automatica_1.py` que ejecutara la respuesta deseada (almacenar el mismo en `src/categorias`)
+    <br>- `mi_categoria_1`: es la categoria a la cual queremos responder automaticamente. Ejemplo: web application attack
+    <br>- `mi_respuesta_automatica_1(imput_json)`: es la funcion de un programa en python `mi_respuesta_automatica_1.py` que ejecutara la respuesta deseada (almacenar el mismo en `src/categorias`)
     
-3. Importar el programa `mi_respuesta_automatica_1` en `theHiveWebhook.py` agregando a la cabecera:
-    <br># import mi_respuesta_automatica_1
-4. El programa `mi_respuesta_automatica_1.py` se almacena en `scr/categorias`
+3. El programa `mi_respuesta_automatica_1.py` se almacena en `scr/categorias`
+4. Importar el programa `mi_respuesta_automatica_1` en `theHiveWebhook.py` agregando a la seccion de imports:
+    <br>` import mi_respuesta_automatica_1`
 5. El programa podra ejecutar apps de la carpeta `funciones` en caso de desearlo, por ejemplo:
      
     ```
     #!/usr/bin/python3
     
     # Toma una alerta con categoria "mi_respuesta_automatica_1" y corre automaticamente un responder
-    #
+    # con la funcion run_responder
     
     import sys
     sys.path.insert(0, '../funciones')
@@ -144,9 +143,9 @@ Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para tes
 
 
     ```
-
 6. Se puede usar 'testeo rapido' para verificar el funcionamiento del mismo (con el JSON adecuado)
-7.  Reactivar servicio si se lo desea de acuerdo al `paso 10` del apartado `Instrucciones de instalacion`.
+7. Reactivar servicio si se lo desea:
+ 	<br />`$ sudo systemctl start webhooks.service`
 
 
 ## Referencias
