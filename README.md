@@ -6,6 +6,7 @@
 1. [Pre requisitos](#pre-requisitos)
 2. [Instrucciones de instalacion](#instrucciones-de-instalacion)
 3. [Instrucciones de testeo rapido](#instrucciones-de-testeo-rapido)
+4. 
 4. [Referencias](#referencias)
 
 
@@ -79,6 +80,57 @@ Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
     <br />`$ deactivate`
 5.  Reactivar servicio si se lo desea de acuerdo al `paso 10` del apartado `Instrucciones de instalacion`.
 
+
+## Instrucciones de testeo rapido
+
+Agregar respuesta automatica personalizada: 
+
+1.  Dar de baja el servicio `webhooks.service` creado en la etapa `Instrucciones de instalacion`:
+    <br />`$ sudo systemctl stop webhooks.service'
+2.  Modificar o agregar al archivo `theHiveWebhook.py` en las lineas (descomentadas):
+ 
+    <br>    # else if (description.find("Mi_categoria_1 ") > 0): #ejecuto la accion para la categoria
+    <br>    # mi_respuesta_automatica_1(imput_json)
+    <br>
+    <br>    -  Mi_categoria_1 es la categoria a la cual queremos responder automaticamente. Ejemplo: web application attack)
+    <br>    -  mi_respuesta_automatica_1 es el python que se ejecutara (almacenar el mismo en src/categorias)
+    
+
+
+    ```
+    if (imput_json['objectType']) == 'alert': # Creacion de alertas
+        if (imput_json['operation']) == 'Creation':
+
+            # en el campo description tenemos category!
+            description = imput_json['object']['description']
+            #  print ("description: " + description)
+
+            #FALTA COMPROBAR SI ES INTERNAL IP
+
+            if (description.find("Web Application Attack") > 0): #ejecuto la accion para la categoria
+                web_application_attack(imput_json)
+            #else if (description.find("Mi categoria 1") > 0): #ejecuto la accion para la categoria
+            #    mi_respuesta_automatica_1(imput_json)
+            #else if (description.find("Mi categoria 2") > 0): #ejecuto la accion para la categoria
+            #    mi_respuesta_automatica_1(imput_json)
+    ```
+
+3.
+4.
+
+
+
+
+```
+webhooks {
+  myLocalWebHook {
+    url = "http://my_HTTP_endpoint/webhook"
+  }
+}
+```
+
+
+
 Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para testear TheHive
 (cambiar el campo sourceref cada vez que se ejecuta).
 
@@ -89,4 +141,5 @@ Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para tes
 * https://github.com/TheHive-Project/TheHiveHooks
 * https://github.com/cybergoatpsyops/TheHive-SideProjects
 * https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
+* https://github.com/TheHive-Project/TheHive4py/blob/master/thehive4py/api.py
 
