@@ -58,9 +58,9 @@ def process():  # If logic
             if (description.find("Web Application Attack") > 0): #ejecuto la accion para la categoria
                 web_application_attack(imput_json)
             #else if (description.find("Mi categoria 1") > 0): #ejecuto la accion para la categoria
-            #    mi_respuesta_automatica_1(data)
+            #    mi_respuesta_automatica_1(imput_json)
             #else if (description.find("Mi categoria 2") > 0): #ejecuto la accion para la categoria
-            #    mi_respuesta_automatica_1(data)
+            #    mi_respuesta_automatica_1(imput_json)
 
     return 'ok'
 
