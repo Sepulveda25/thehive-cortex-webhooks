@@ -81,22 +81,13 @@ Una vez realizados los pasos del apartado `Instrucciones de instalacion`:
 5.  Reactivar servicio si se lo desea de acuerdo al `paso 10` del apartado `Instrucciones de instalacion`.
 
 
-## Instrucciones de testeo rapido
-
-Agregar respuesta automatica personalizada: 
+## Agregar respuesta automatica personalizada: 
 
 1.  Dar de baja el servicio `webhooks.service` creado en la etapa `Instrucciones de instalacion`:
     <br />`$ sudo systemctl stop webhooks.service'
-2.  Modificar o agregar al archivo `theHiveWebhook.py` en las lineas (descomentadas):
- 
-    <br>    # else if (description.find("Mi_categoria_1 ") > 0): #ejecuto la accion para la categoria
-    <br>    # mi_respuesta_automatica_1(imput_json)
-    <br>
-    <br>    -  Mi_categoria_1 es la categoria a la cual queremos responder automaticamente. Ejemplo: web application attack)
-    <br>    -  mi_respuesta_automatica_1 es el python que se ejecutara (almacenar el mismo en src/categorias)
+2.  Modificar o agregar al archivo `theHiveWebhook.py`: 
+
     
-
-
     ```
     if (imput_json['objectType']) == 'alert': # Creacion de alertas
         if (imput_json['operation']) == 'Creation':
@@ -114,11 +105,25 @@ Agregar respuesta automatica personalizada:
             #else if (description.find("Mi categoria 2") > 0): #ejecuto la accion para la categoria
             #    mi_respuesta_automatica_1(imput_json)
     ```
+     
+     en las lineas (descomentadas):
+    <br> else if (description.find("Mi_categoria_1 ") > 0): #ejecuto la accion para la categoria
+    <br> mi_respuesta_automatica_1(imput_json)
+    <br>
+    <br>-  Mi_categoria_1 es la categoria a la cual queremos responder automaticamente. Ejemplo: web application attack)
+    <br>-  mi_respuesta_automatica_1 es el python que se ejecutara (almacenar el mismo en src/categorias)
+    
 
-3.
-4.
-
-
+3. h
+4. h
+5. f
+6. d
+7. s
+8. s
+9. s
+10. ss
+11. a
+12. a
 
 
 ```
