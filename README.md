@@ -136,8 +136,8 @@ Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para tes
     
     # Nombre del responder a ejectuar
     
-        responder_name = 'slackNotificacion'
-    
+        responder_name = 'nombreDelResponder'
+ 
         response = run_responder(data, responder_name)
     #    print (response)
 
