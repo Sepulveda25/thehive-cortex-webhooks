@@ -19,7 +19,6 @@ la alerta a caso.
 
 La funcion case(self, case_id) de thehive4py se usa para obtener el caso completo,
 los campos del caso se acceden y modifican como:
-
 <br />    case.status = 'Resolved'
 <br />    case.resolutionStatus = 'TruePositive'
 <br />    case.impactStatus = 'NoImpact'
@@ -82,5 +81,7 @@ def set_case_resolved(alert_id):
 
 ## Referencias
 
+*  https://github.com/TheHive-Project/TheHive4py/tree/master/thehive4py
+*  https://github.com/TheHive-Project/TheHive4py/blob/master/thehive4py/api.py
 
 
