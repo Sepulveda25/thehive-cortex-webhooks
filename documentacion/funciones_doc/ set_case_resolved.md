@@ -1,4 +1,4 @@
-# Obtener ID de un responder a traves de su nombre
+# Promover una alerta a caso y marcar como resuelta
 
 
 
