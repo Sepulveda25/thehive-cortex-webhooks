@@ -2,7 +2,7 @@
 
 ## Tabla de contenidos
 
-1. [Introduccion](#introduccion)
+1. [Descripcion](#descripcion)
 2. [Codigo en Python](#codigo-en-python)
 
 
@@ -71,8 +71,6 @@ def hive2cortex(imput_json):
     #Cuando se convierte a formato json los campos con "None" se transforman en null y "True" en true
     #Pero esto no es necesario para el programa Responder
     #json2cortex = json.dumps(json_aux)
-
-#    print(json2cortex)
 
     return json_aux
 
