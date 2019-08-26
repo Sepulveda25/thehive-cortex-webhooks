@@ -1,4 +1,4 @@
-# Ejecutar responder
+# Obtener JSON de entrada a Cortex para la ejecucion de un responder
 
 ## Tabla de contenidos
 
@@ -10,7 +10,7 @@
 
 Funcion encargada de convertir el JSON de entrada a TheHive (ver en carpeta 
 `json_ejemplos` el archivo `json_sonion_to_thehive.json`) a un JSON de entrada a 
-Cortex (ver en carpeta `json_ejemplos` el archivo ` json_sonion_to_thehive.json`).
+Cortex para la ejecucion de un responder (ver en carpeta `json_ejemplos` el archivo ` json_sonion_to_thehive.json`).
 
 
 
