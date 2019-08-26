@@ -73,15 +73,10 @@ El programa realiza las siguientes actividades:
 1.  Recibe como parametro `data` el JSON que proviene desde SONION y `responder_name` el nombre del responder a ejecutar.
 2.  Llama a la funcion `get_ID_responder(responder_name)` y obtiene el ID del responder.
 3.  Llama a la funcion hive2cortex(data) donde `data` es un JSON del tipo `json_sonion_to_thehive.json` y devuelve un JSON del tipo `json_thehive_to_cortex.json`
-4.  Genera 
-5.  4
-6.  4
-7.  2
-8.  
-9.  
-
-
-
+4.  Genera la URL para enviar la solicitud de ejecucion del responder.
+5.  Envia la solicitud de ejecucion del responder mediante un POST, con el JSON `json_thehive_to_cortex.json` como parametro.
+6.  Esperamos el reporte de la ejecucion del responder y verificamos si es correcta "succes"=True
+7.  Creamos una entrada en TheHive donde promovemos la alerta a caso resuelto, un llamado a la funcion `set_case_resolved`.
 
 
 ## Codigo en Python
