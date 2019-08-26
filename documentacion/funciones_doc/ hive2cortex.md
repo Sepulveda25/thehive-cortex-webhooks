@@ -14,8 +14,6 @@ Cortex (ver en carpeta `json_ejemplos` el archivo ` json_sonion_to_thehive.json`
 
 
 
-
-
 ## Codigo en Python
 
 ` hive2cortex.py`
