@@ -70,18 +70,15 @@ indica si la ejecucion fue exitosa o no.
 
 El programa realiza las siguientes actividades:
 
-1.  f
-2.  s
-3.  s
-4.  s
+1.  Recibe como parametro `data` el JSON que proviene desde SONION y `responder_name` el nombre del responder a ejecutar.
+2.  Llama a la funcion `get_ID_responder(responder_name)` y obtiene el ID del responder.
+3.  Llama a la funcion hive2cortex(data) donde `data` es un JSON del tipo `json_sonion_to_thehive.json` y devuelve un JSON del tipo `json_thehive_to_cortex.json`
+4.  Genera 
 5.  4
 6.  4
 7.  2
-8.  22
-9.  2
-10.  
-
-
+8.  
+9.  
 
 
 
