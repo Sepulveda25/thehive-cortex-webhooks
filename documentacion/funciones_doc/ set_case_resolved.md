@@ -29,6 +29,14 @@ En el ejemplo anterior se modifican los campos status, resolutionStatus, impactS
 y summary que son los campos tipicos que se modifican cuando se marca una alerta como resuelta.
 
 
+La funcion update_case(self, case, fields=[]) de thehive4py se usa para actualizar 
+los campos de un caso con lo valores indicados anteriormente, el parametro case es 
+el caso obtenido con la funcion case y fields=[] son los campos que se actualizaran 
+en el caso, ejemplo: 
+
+api.update_case(case, ['status', 'resolutionStatus', 'impactStatus', 'tags', 'summary'])
+
+
 
 ## Codigo en Python 
 
