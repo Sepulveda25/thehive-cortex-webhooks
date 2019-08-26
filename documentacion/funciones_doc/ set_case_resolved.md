@@ -11,11 +11,11 @@
 
 ## Uso de la api thehive4py
 
-Se utiliza las apis provistas por thehive4py para promover una alerta a caso en 
-TheHIVE y marcar dicho caso como resuelto de forma automatica.
+Se utiliza las funciones provistas por la api thehive4py para promover una alerta a caso en 
+TheHive y marcar dicho caso como resuelto de forma automatica.
 
 La funcion promote_alert_to_case(self, alert_id) de thehive4py se usa para promover
-la alerta a caso.
+la alerta a caso (de esta se extrae el case_id).
 
 La funcion case(self, case_id) de thehive4py se usa para obtener el caso completo,
 los campos del caso se acceden y modifican como:
@@ -27,10 +27,9 @@ los campos del caso se acceden y modifican como:
 En el ejemplo anterior se modifican los campos status, resolutionStatus, impactStatus
 y summary que son los campos tipicos que se modifican cuando se marca una alerta como resuelta.
 
-
 La funcion update_case(self, case, fields=[]) de thehive4py se usa para actualizar 
-los campos de un caso con lo valores indicados anteriormente, el parametro case es 
-el caso obtenido con la funcion case y fields=[] son los campos que se actualizaran 
+los campos de un caso con lo valores indicados anteriormente, el parametro "case" es 
+el caso obtenido con la funcion  case(self, case_id) y fields=[] son los campos que se actualizaran 
 en el caso, ejemplo: 
 
 api.update_case(case, ['status', 'resolutionStatus', 'impactStatus', 'tags', 'summary'])
