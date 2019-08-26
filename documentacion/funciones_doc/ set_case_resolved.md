@@ -1,4 +1,4 @@
-# Promover una alerta a caso y marcar como resuelta
+# Promover una alerta a caso y marcar como resuelta usando thehive4py
 
 
 
@@ -9,7 +9,7 @@
 3. [Referencias](#referencias)
 
 
-## uso-de-la-api-thehive4py 
+## Uso de la api thehive4py
 
 Se utiliza las apis provistas por thehive4py para promover una alerta a caso en 
 TheHIVE y marcar dicho caso como resuelto de forma automatica.
