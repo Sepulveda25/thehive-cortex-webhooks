@@ -81,6 +81,7 @@ hive_observable_data_mapping:
   - alert: '{match[alert]}'
   - category: '{match[category]}'	
   - classification: '{match[classification]}'
+  
 ```
 
 - Crear en TheHive los `observables: alert, category y classification`.
@@ -148,7 +149,7 @@ Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para tes
 
 
 
-## Agregar respuesta automatica personalizada: 
+## Agregar respuesta automatica a determinada alerta: 
 
 1.  Dar de baja el servicio `webhooks.service` creado en la etapa `Instrucciones de instalacion`:
     <br />`$ sudo systemctl stop webhooks.service`
@@ -189,7 +190,7 @@ Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para tes
     <br># else if (description.find("mi_categoria_1 ") > 0): 
     <br># mi_respuesta_automatica_1(imput_json)
     <br>
-    <br>- `mi_categoria_1`: es la categoria a la cual queremos responder automaticamente. Ejemplo: web application attack
+    <br>- `mi_categoria_1`: es la categoria a la cual queremos responder automaticamente. Ejemplo: SQL Injection Attempt
     <br>- `mi_respuesta_automatica_1(imput_json)`: es la funcion de un programa en python `mi_respuesta_automatica_1.py` que ejecutara la respuesta deseada (almacenar el mismo en `src/categorias`)
     
 3. El programa `mi_respuesta_automatica_1.py` se almacena en `scr/categorias`
