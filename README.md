@@ -25,6 +25,69 @@ webhooks {
 }
 ```
 
+- Las reglas de ElastAlert deben incluir los `campos alert, category y classification` como `observables`, un ejemplo de regla es:
+    
+
+```
+
+es_host: elasticsearch
+es_port: 9200
+# (Required)
+# Rule name, must be unique
+index: "*:logstash-ids-*"
+name: Alerta de Aplicaciones Web Hive
+
+type: frequency
+num_events: 10
+timeframe:
+    minutes: 10
+realalert:
+    minutes: 0
+
+
+filter:
+- query_string:
+    query: 'classification:"Web Application Attack"'
+
+alert: hivealerter
+
+hive_connection:
+  hive_host: http://172.16.81.110
+  hive_port: 9000
+  hive_apikey: xLuixewzDP6zXcVgLvyaFUoeUZcZgKu3
+
+hive_proxies:
+  http: ''
+  https: ''
+
+hive_alert_config:
+  title: '{rule[name]} -- {match[alert]}'
+  type: 'external'
+  source: 'SecurityOnion'
+  description: '{match[message]}'
+  severity: 3
+  tags: ['elastalert, SecurityOnion, {match[category]}']
+  tlp: 3
+  status: 'New'
+  follow: True
+
+hive_observable_data_mapping:
+  - source_ip: '{match[source_ip]}'
+  - destination_ip: '{match[destination_ip]}'
+  - source_port: '{match[source_port]}'
+  - destination_port: '{match[destination_port]}'
+  - interface: '{match[interface]}'
+  - timestamp: '{match[@timestamp]}'
+  - alert: '{match[alert]}'
+  - alert: '{match[category]}'	
+  - alert: '{match[classification]}'
+  
+}
+```
+
+- Crear en TheHive los `observables: alert, category y classification`.
+
+
 ## Instrucciones de instalacion
 
 (Para ver detalles del desarollo ver archivo `Instrucciones de desarollo` en carpeta Documentacion).
