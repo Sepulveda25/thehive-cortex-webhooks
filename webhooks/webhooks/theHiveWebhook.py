@@ -6,7 +6,7 @@ from parametros import *
 import sys
 sys.path.insert(0, './src/categorias')
 sys.path.insert(0, './src/funciones')
-from web_application_attack import *
+from SQL_injection_attempt import *
 from match_ip_internal import *
 
 def find_key(obj, key):  # recursive generator
@@ -49,14 +49,33 @@ def process():  # If logic
     if (imput_json['objectType']) == 'alert': # Creacion de alertas
         if (imput_json['operation']) == 'Creation':
 
-            # en el campo description tenemos category!
-            description = imput_json['object']['description']
-            #  print ("description: " + description)
+            # dentro del array artifacts tenemos alert, category y classification!
+
+            artifacts = imput_json['object']['artifacts']
+
+            description_alert = None
+            description_category = None
+            description_classification = None
+
+            # para cada objeto de la lista artifacts filtro por la
+            # linea que tiene destination_ip como ip.
+            for element in artifacts:
+                if element["dataType"] == "alert":
+                    description_alert = element["data"]
+                    #print ("description_alert: " + description_alert)
+                if element["dataType"] == "category":
+                    description_category = element["data"]
+                    #print ("description_category: " + description_category)
+                if element["dataType"] == "classification":
+                    description_classification = element["data "]
+                    #print ("description_classification: " + description_classification)
+
+
 
             #FALTA COMPROBAR SI ES INTERNAL IP
 
-            if (description.find("Web Application Attack") > 0): #ejecuto la accion para la categoria
-                web_application_attack(imput_json)
+            if (description_alert.find("SQL Injection Attempt") > 0): #ejecuto la accion para la categoria
+                SQL_injection_attempt(imput_json)
             #else if (description.find("Mi categoria 1") > 0): #ejecuto la accion para la categoria
             #    mi_respuesta_automatica_1(imput_json)
             #else if (description.find("Mi categoria 2") > 0): #ejecuto la accion para la categoria

@@ -22,7 +22,7 @@ def set_case_resolved(alert_id):
     case_id = case_json["id"]
     case_idCase = case_json["caseId"]
 #    print(case_id)
-    print(case_idCase)
+#    print(case_idCase)
 
 # Ponemos el caso resuelto
 

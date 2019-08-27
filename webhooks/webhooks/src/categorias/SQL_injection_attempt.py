@@ -7,7 +7,7 @@ import sys
 sys.path.insert(0, '../funciones')
 from run_responder import *
 
-def web_application_attack(data):
+def SQL_injection_attempt(data):
 
 
 #    print (data)
