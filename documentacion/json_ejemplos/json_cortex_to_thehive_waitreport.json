@@ -2,45 +2,41 @@
    "pap":2,
    "workerName":"slackNotificacion_1_0",
    "status":"Success",
+   "label":"[SecurityOnion:c4a5bc] Alerta de Aplicaciones Web Hive -- ET WEB_SERVER Possible SQL Injection Attempt UNION SELECT ",
    "parameters":{
       "user":"thehive"
    },
    "organization":"ECO",
    "workerId":"460d2164401c0079784ef0778eceb8ca",
-   "dataType":"thehive:alert",
-   "workerDefinitionId":"slackNotificacion_1_0",
-   "message":"",
-   "label":"[SecurityOnion:5487f6] New IDS Alert! -- ET EXPLOIT HackingTrio UA (Hello, World) ",
-   "createdBy":"eco_csirt",
    "data":{
       "severity":3,
-      "date":1565812422000,
-      "_routing":"7713f1c7fe3fea8a79717dae65132256",
+      "date":1566932400000,
+      "_routing":"82aaad038e0daa57de7227ff0640c04a",
       "customFields":{
 
       },
       "caseTemplate":null,
       "_type":"alert",
-      "description":"[1:2025576:2] ET EXPLOIT HackingTrio UA (Hello, World) [Classification: Attempted Administrator Privilege Gain] [Priority: 1]: <sonion-virtual-machine-ens192> {TCP} 149.129.226.204:54228 -> 200.16.22.93:80",
-      "lastSyncDate":1565812421318,
+      "description":"[1:2006446:13] ET WEB_SERVER Possible SQL Injection Attempt UNION SELECT [Classification: Web Application Attack] [Priority: 1]: <sonion-virtual-machine-ens192> {TCP} 172.16.81.4:35204 -> 200.16.22.41:80",
+      "lastSyncDate":1566932210703,
       "source":"SecurityOnion",
-      "title":"New IDS Alert! -- ET EXPLOIT HackingTrio UA (Hello, World) ",
       "type":"external",
       "follow":true,
+      "title":"Alerta de Aplicaciones Web Hive -- ET WEB_SERVER Possible SQL Injection Attempt UNION SELECT ",
       "tags":[
-         "elastalert, SecurityOnion, exploit"
+         "elastalert, SecurityOnion, web_server"
       ],
-      "createdAt":1565812421317,
+      "createdAt":1566932210697,
       "_parent":null,
       "createdBy":"eco",
       "tlp":3,
-      "_id":"7713f1c7fe3fea8a79717dae65132256",
-      "id":"7713f1c7fe3fea8a79717dae65132256",
-      "sourceRef":"5487f6",
+      "_id":"82aaad038e0daa57de7227ff0640c04a",
+      "id":"82aaad038e0daa57de7227ff0640c04a",
+      "sourceRef":"c4a5bc",
       "_version":1,
       "artifacts":[
          {
-            "data":"149.129.226.204",
+            "data":"172.16.81.4",
             "dataType":"source_ip",
             "message":null,
             "tags":[
@@ -49,7 +45,7 @@
             "tlp":2
          },
          {
-            "data":"200.16.22.93",
+            "data":"200.16.22.41",
             "dataType":"destination_ip",
             "message":null,
             "tags":[
@@ -58,7 +54,7 @@
             "tlp":2
          },
          {
-            "data":"54228",
+            "data":"35204",
             "dataType":"source_port",
             "message":null,
             "tags":[
@@ -85,7 +81,7 @@
             "tlp":2
          },
          {
-            "data":"2019-08-14T19:52:35.872Z",
+            "data":"2019-08-27T18:59:04.445Z",
             "dataType":"timestamp",
             "message":null,
             "tags":[
@@ -94,17 +90,8 @@
             "tlp":2
          },
          {
-            "data":"snort",
-            "dataType":"event_type",
-            "message":null,
-            "tags":[
-
-            ],
-            "tlp":2
-         },
-         {
-            "data":"https://172.16.81.50/capme/?sip=149.129.226.204&dip=200.16.22.93&spt=54228&dpt=80&stime=1565715445&etime=1565722645&filename=squert",
-            "dataType":"url",
+            "data":"ET WEB_SERVER Possible SQL Injection Attempt UNION SELECT ",
+            "dataType":"alert",
             "message":null,
             "tags":[
 
@@ -114,23 +101,27 @@
       ],
       "status":"New"
    },
+   "dataType":"thehive:alert",
+   "workerDefinitionId":"slackNotificacion_1_0",
+   "message":"",
+   "createdBy":"eco_csirt",
+   "createdAt":1566935249330,
    "type":"responder",
-   "createdAt":1565812881359,
    "tlp":2,
-   "startDate":1565812881993,
+   "startDate":1566935249983,
    "updatedBy":"eco_csirt",
-   "updatedAt":1565812884033,
-   "endDate":1565812884033,
+   "updatedAt":1566935251871,
+   "endDate":1566935251870,
    "_type":"job",
-   "_routing":"AWyRuHfRrefEjDnmkcit",
+   "_routing":"AWzUnnG6bgKHeSjcT5PA",
    "_parent":null,
-   "_id":"AWyRuHfRrefEjDnmkcit",
+   "_id":"AWzUnnG6bgKHeSjcT5PA",
    "_version":3,
-   "id":"AWyRuHfRrefEjDnmkcit",
+   "id":"AWzUnnG6bgKHeSjcT5PA",
    "analyzerId":"460d2164401c0079784ef0778eceb8ca",
    "analyzerName":"slackNotificacion_1_0",
    "analyzerDefinitionId":"slackNotificacion_1_0",
-   "date":1565812881359,
+   "date":1566935249330,
    "report":{
       "summary":{
 
