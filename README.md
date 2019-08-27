@@ -158,15 +158,29 @@ Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para tes
     if (imput_json['objectType']) == 'alert': # Creacion de alertas
         if (imput_json['operation']) == 'Creation':
 
-            # en el campo description tenemos category!
-            description = imput_json['object']['description']
-            #  print ("description: " + description)
+            # dentro del array artifacts tenemos alert, category y classification!
 
-            if (description.find("Web Application Attack") > 0): 
-                web_application_attack(imput_json)
-            #else if (description.find("mi_categoria_1") > 0): 
+            artifacts = imput_json['object']['artifacts']
+
+            description_alert = None
+            description_category = None
+            description_classification = None
+
+            # para cada objeto de la lista artifacts filtro por la
+            # linea que tiene destination_ip como ip.
+            for element in artifacts:
+                if element["dataType"] == "alert":
+                    description_alert = element["data"]
+                if element["dataType"] == "category":
+                    description_category = element["data"]
+                if element["dataType"] == "classification":
+                    description_classification = element["data "]
+
+            if (description_alert.find("SQL Injection Attempt") > 0): #ejecuto la accion para la categoria
+                SQL_injection_attempt(imput_json)
+            #else if (description.find("Mi categoria 1") > 0): #ejecuto la accion para la categoria
             #    mi_respuesta_automatica_1(imput_json)
-            #else if (description.find("Mi categoria 2") > 0): 
+            #else if (description.find("Mi categoria 2") > 0): #ejecuto la accion para la categoria
             #    mi_respuesta_automatica_1(imput_json)
     ```
      
