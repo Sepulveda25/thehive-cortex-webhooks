@@ -38,9 +38,9 @@ index: "*:logstash-ids-*"
 name: Alerta de Aplicaciones Web Hive
 
 type: frequency
-num_events: 10
+num_events: 5
 timeframe:
-    minutes: 10
+    minutes: 3
 realalert:
     minutes: 0
 
@@ -79,10 +79,8 @@ hive_observable_data_mapping:
   - interface: '{match[interface]}'
   - timestamp: '{match[@timestamp]}'
   - alert: '{match[alert]}'
-  - alert: '{match[category]}'	
-  - alert: '{match[classification]}'
-  
-}
+  - category: '{match[category]}'	
+  - classification: '{match[classification]}'
 ```
 
 - Crear en TheHive los `observables: alert, category y classification`.
