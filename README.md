@@ -230,6 +230,8 @@ Se puede usar el ejemplo `crear_alerta_api` de la carpeta Documentacion para tes
 * https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/webhooks.md#configuration
 * https://github.com/TheHive-Project/TheHiveHooks
 * https://github.com/cybergoatpsyops/TheHive-SideProjects
-* https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
 * https://github.com/TheHive-Project/TheHive4py/blob/master/thehive4py/api.py
+* https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
+* https://securityonion.readthedocs.io/en/latest/hive.html
+
 
