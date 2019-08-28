@@ -25,7 +25,7 @@ webhooks {
 }
 ```
 
-- Las reglas de ElastAlert deben incluir los `campos alert, category y classification` como `observables`, un ejemplo de regla es:
+- Las reglas de ElastAlert (para el Nodo master en Security Onion) deben incluir los `campos alert, category y classification` como `observables`, un ejemplo de regla es:
     
 
 ```
@@ -78,9 +78,10 @@ hive_observable_data_mapping:
   - destination_port: '{match[destination_port]}'
   - interface: '{match[interface]}'
   - timestamp: '{match[@timestamp]}'
-  - alert: '{match[alert]}'
-  - category: '{match[category]}'	
   - classification: '{match[classification]}'
+  - alert: '{match[alert]}'
+  - category: '{match[category]}'
+
   
 ```
 
