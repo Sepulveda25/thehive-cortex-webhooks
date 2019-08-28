@@ -14,7 +14,7 @@
 ## Pre requisitos
 
 - Python 3.6
-- Tener TheHive instalado, agregar al archivo application.conf (`/etc/thehive/application.conf`):
+- En el server con TheHive instalado agregar al archivo application.conf (`/etc/thehive/application.conf`):
 
 ```
 #The Hive Hooks local
@@ -24,6 +24,18 @@ webhooks {
   }
 }
 ```
+
+Ejemplo: 
+
+```
+#The Hive Hooks local
+webhooks {
+  myLocalWebHook {
+    url = "http://127.0.0.1:5000/"
+  }
+}
+```
+
 
 - Las reglas de ElastAlert (para el Nodo master en Security Onion) deben incluir los `campos alert, category y classification` como `observables`, un ejemplo de regla es:
     
