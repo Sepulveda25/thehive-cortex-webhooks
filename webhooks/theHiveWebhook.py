@@ -67,7 +67,7 @@ def process():  # If logic
                     description_category = element["data"]
                     #print ("description_category: " + description_category)
                 if element["dataType"] == "classification":
-                    description_classification = element["data "]
+                    description_classification = element["data"]
                     #print ("description_classification: " + description_classification)
 
             #ESTO SE USA?
