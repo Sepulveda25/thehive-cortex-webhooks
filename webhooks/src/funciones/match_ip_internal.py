@@ -59,7 +59,7 @@ def match_ip_internal(data):
     #    print("Json:" + dato['name'])
         if IPAddress(source_ip) in IPNetwork(dato['name']): #coinciden ip guardo IP en array
                 # print(dato['name'])
-                print("La source_ip es ip es interna!")
+                #print("La source_ip es ip es interna!")
                 source_ip_internal = 1
                 break;
 
@@ -68,7 +68,7 @@ def match_ip_internal(data):
         #    print("Json:" + dato['name'])
         if IPAddress(destination_ip) in IPNetwork(dato['name']):  # coinciden ip guardo IP en array
             #print(dato['name'])
-            print("La destination_ip es ip es interna!")
+            #print("La destination_ip es ip es interna!")
             destination_ip_internal = 1
             break;
 
