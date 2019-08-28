@@ -11,10 +11,11 @@
 
 
 
-## Pre requisitos
+## Pre-requisitos
 
 - Python 3.6
-- En el server con TheHive instalado agregar al archivo application.conf (`/etc/thehive/application.conf`):
+- En el server con TheHive instalado agregar al archivo application.conf 
+(`/etc/thehive/application.conf`) donde URL es la direccion y puerto del server Webhooks:
 
 ```
 #The Hive Hooks local
