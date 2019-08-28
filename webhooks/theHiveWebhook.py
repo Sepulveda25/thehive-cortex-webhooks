@@ -70,9 +70,8 @@ def process():  # If logic
                     description_classification = element["data "]
                     #print ("description_classification: " + description_classification)
 
-
-
-            #FALTA COMPROBAR SI ES INTERNAL IP
+            #ESTO SE USA?
+            is_internal =  match_ip_internal (imput_json)
 
             if (description_alert.find("SQL Injection Attempt") > 0): #ejecuto la accion para la categoria
                 SQL_injection_attempt(imput_json)
