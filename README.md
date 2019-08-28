@@ -3,7 +3,7 @@
 
 ## Tabla de contenidos
 
-1. [Pre requisitos](#pre-requisitos)
+1. [Pre-requisitos](#pre-requisitos)
 2. [Instrucciones de instalacion](#instrucciones-de-instalacion)
 3. [Instrucciones de testeo rapido](#instrucciones-de-testeo-rapido)
 4. [Agregar respuesta automatica personalizada](#agregar-respuesta-automatica-personalizada)
