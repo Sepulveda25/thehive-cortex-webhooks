@@ -98,7 +98,14 @@ hive_observable_data_mapping:
   
 ```
 
-- Crear en TheHive los `observables: alert, category y classification`.
+- Crear en TheHive los `observables`:
+    - source_ip
+    - destination_ip
+    - source_port
+    - destination_port
+    - alert
+    - category
+    - classification
 
 
 ## Instrucciones de instalacion
