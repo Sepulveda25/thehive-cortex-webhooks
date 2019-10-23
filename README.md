@@ -131,7 +131,7 @@ hive_observable_data_mapping:
 7.  Permitir acceso puerto 5000:
 	<br />`$ sudo ufw allow 5000`
 8.  Dentro de la carpeta webhooks modificar el archivo `parametros.py` con los valores de `hiveUR`L y `hookURL` correspodientes y las api keys necesarias.
-9.  Copiar archivo `webhooks.service` en `/etc/systemd/system/`
+9.  Copiar archivo `webhooks.service` en `/etc/systemd/system/` . Modificar en el archivo los paths y el user.
 10. Iniciar el servicio:
 	<br />`$ sudo systemctl start webhooks.service`
 11. Comprobar el estado del servicio:
