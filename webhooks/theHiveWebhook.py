@@ -73,7 +73,7 @@ def process():  # If logic
             #ESTO SE USA?
             is_internal =  match_ip_internal (imput_json)
 
-            if (description_alert.find("SQL Injection Attempt") > 0): #ejecuto la accion para la categoria
+            if (description_alert.find("SQL Injection Attempt") >= 0): #ejecuto la accion para la categoria
                 SQL_injection_attempt(imput_json)
             #else if (description.find("Mi categoria 1") > 0): #ejecuto la accion para la categoria
             #    mi_respuesta_automatica_1(imput_json)
